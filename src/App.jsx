@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
+import { Navbar } from './Components/Navbar/Navbar';
 
 // Movile and PC Backpgrounds
 const pcBackgrounds = [
@@ -51,7 +52,7 @@ function App() {
         })`,
       }}
     >
-      <h1>{width}</h1>
+      <Navbar />
     </div>
   );
 }

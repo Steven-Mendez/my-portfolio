@@ -1,0 +1,51 @@
+.navbar {
+  height: 60px;
+  margin: 0 3rem;
+  background-color: #191724ef;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  position: sticky;
+  top: 2rem;
+  z-index: 10;
+  padding: 0px 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.navbar ul li {
+  list-style: none;
+  display: inline-block;
+  border-radius: 0.5rem;
+}
+
+.navbar ul li:hover {
+  background-color: #ffffff10;
+}
+
+.navbar ul li a {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
+.navbar ul li a span {
+  margin-left: 10px;
+}
+
+.active .icon {
+  color: #c9f4aa;
+}
+
+.active span {
+  color: #c9f4aa;
+}
+
+.navbar .networks li a {
+  padding: 5px 10px;
+}
