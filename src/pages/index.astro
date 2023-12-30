@@ -5,7 +5,16 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="Steven Mendez's Portfolio">
   <main>
     <header class="header-section">
-      <h1>Welcome to my Portfolio</h1>
+      <h1 class="portfolio-title">
+        Steven Mendez <span class="gradient-text"
+          >Software Backend Developer</span
+        >
+      </h1>
+      <p class="text">
+        Hey there! 👋 Check out my portfolio! I specialize in building reliable
+        and efficient backend solutions. Let's explore the exciting intersection
+        of curiosity and coding together! 🚀
+      </p>
     </header>
   </main>
 </Layout>
@@ -19,31 +28,18 @@ import Layout from '../layouts/Layout.astro';
 
   .header-section {
     /* Apply flexbox layout to center the content */
+    position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    overflow: visible;
-    text-align: center;
+    align-items: center;
     padding-top: var(--header-padding-small);
-  }
-
-  @media (min-width: 640px) {
-    .header-section {
-      padding-top: var(--header-padding-small);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .header-section {
-      padding-top: var(--header-padding-large);
-    }
+    height: 100vh;
   }
 
   .header-section::before {
     content: '';
     position: absolute;
-    z-index: -1;
     top: 0%;
     bottom: 10%;
     width: 150%;
@@ -51,5 +47,70 @@ import Layout from '../layouts/Layout.astro';
     background: var(--color-background-gradient);
     -webkit-mask-image: var(--mask-image);
     mask-image: var(--mask-image);
+    z-index: -1;
+  }
+
+  .portfolio-title {
+    margin-bottom: 1.5rem;
+    max-width: 700px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: left;
+    font-family: 'Obviously', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 0.8;
+  }
+
+  @media (min-width: 768px) {
+    .portfolio-title {
+      font-size: 3rem;
+    }
+  }
+
+  .gradient-text {
+    background: -webkit-linear-gradient(45deg, #40cfff 0%, #fdf48e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.9rem;
+  }
+
+  .text {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 700px;
+    text-align: left;
+  }
+
+  @media (max-width: 768px) {
+    .portfolio-title {
+      font-size: 2.5rem;
+    }
+
+    .gradient-text {
+      font-size: 1.9rem;
+    }
+
+    .text {
+      font-size: 1.3rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .header-section {
+      padding-top: var(--header-padding-large);
+    }
+
+    .portfolio-title {
+      font-size: 2.2rem;
+    }
+
+    .gradient-text {
+      font-size: 1.6rem;
+    }
+
+    .text {
+      font-size: 1.2rem;
+    }
   }
 </style>
