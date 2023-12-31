@@ -6,13 +6,13 @@ import Layout from '../layouts/Layout.astro';
   <main>
     <header class="header-section">
       <h1 class="portfolio-title">
-        Steven Mendez <span class="gradient-text"
-          >Software Backend Developer</span
-        >
+        Steven Mendez <span class="gradient-text">Software Developer</span>
       </h1>
       <p class="text">
-        I specialize in building reliable and efficient backend solutions. Let's
-        explore the exciting intersection of curiosity and coding together! 🚀
+        I specialize in building reliable and efficient backend solutions.
+        Transforming challenges into elegant solutions. Let's code the future
+        together, where the art of development harmonizes with the spirit of
+        innovation! 💡
       </p>
     </header>
   </main>
@@ -33,7 +33,36 @@ import Layout from '../layouts/Layout.astro';
     justify-content: center;
     align-items: center;
     padding-top: var(--header-padding-small);
+    min-width: 100%;
     height: 100vh;
+    box-sizing: border-box;
+  }
+
+  .portfolio-title {
+    margin-bottom: 0.75rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    text-align: left;
+    font-size: 8rem;
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 3rem;
+  }
+
+  .gradient-text {
+    background: -webkit-linear-gradient(45deg, #40cfff 0%, #fdf48e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 0.5em;
+    display: block;
+  }
+
+  .text {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    max-width: 1410px;
+    text-align: left;
+    font-size: 1.25rem;
   }
 
   .header-section::before {
@@ -49,67 +78,62 @@ import Layout from '../layouts/Layout.astro';
     z-index: -1;
   }
 
-  .portfolio-title {
-    margin-bottom: 1.5rem;
-    max-width: 700px;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    text-align: left;
-    font-family: 'Obviously', sans-serif;
-    font-size: 2.5rem;
-    font-weight: 600;
-    line-height: 0.8;
+  @media only screen and (max-width: 1280px) {
+    .portfolio-title {
+      font-size: 5rem;
+      margin-bottom: 1.5rem;
+    }
+    .gradient-text {
+      font-size: 0.6em;
+    }
+
+    .text {
+      max-width: 890px;
+      font-size: 1rem;
+    }
   }
 
-  @media (min-width: 768px) {
+  @media only screen and (max-width: 890px) {
+    .portfolio-title {
+      font-size: 4rem;
+    }
+
+    .text {
+      max-width: 717px;
+    }
+  }
+
+  @media only screen and (max-width: 720px) {
     .portfolio-title {
       font-size: 3rem;
-    }
-  }
-
-  .gradient-text {
-    background: -webkit-linear-gradient(45deg, #40cfff 0%, #fdf48e 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 1.9rem;
-  }
-
-  .text {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    max-width: 700px;
-    text-align: left;
-  }
-
-  @media (max-width: 768px) {
-    .portfolio-title {
-      font-size: 2.5rem;
-    }
-
-    .gradient-text {
-      font-size: 1.9rem;
+      margin-bottom: 1rem;
     }
 
     .text {
-      font-size: 1.3rem;
+      max-width: 545px;
     }
   }
 
-  @media (max-width: 576px) {
-    .header-section {
-      padding-top: var(--header-padding-large);
-    }
-
+  @media only screen and (max-width: 545px) {
     .portfolio-title {
-      font-size: 2.2rem;
-    }
-
-    .gradient-text {
-      font-size: 1.6rem;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
     }
 
     .text {
-      font-size: 1.2rem;
+      max-width: 360px;
+    }
+  }
+
+  @media only screen and (max-width: 360px) {
+    .portfolio-title {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .text {
+      max-width: 266px;
+      font-size: 0.5rem;
     }
   }
 </style>
