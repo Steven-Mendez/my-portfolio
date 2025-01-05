@@ -3,7 +3,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
-import Navbar from "@/components/navbar";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -60,7 +59,6 @@ export default function Hero() {
       className="relative w-full min-h-screen hero-gradient"
       aria-labelledby="hero-heading"
     >
-      <Navbar />
       <div className="flex items-center justify-center min-h-screen">
         <div className="container px-4 md:px-6 z-10">
           <div className="flex flex-col items-center space-y-8 text-center">
