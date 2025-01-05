@@ -5,7 +5,6 @@ import { ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import Navbar from "@/components/navbar";
 import { motion } from "framer-motion";
-import Script from "next/script";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const content = {
