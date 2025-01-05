@@ -23,8 +23,7 @@ const content = {
   },
   es: {
     title: "Steven Méndez",
-    subtitle:
-      "Diseñando y entregando software confiable para necesidades modernas",
+    subtitle: "Diseñando y entregando software para necesidades modernas",
     cta: "Explora Mi Código",
     skills: [
       "+2 Años de Experiencia",
