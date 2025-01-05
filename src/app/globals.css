@@ -55,5 +55,6 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+    font-family: "Courier Prime", "Courier New", monospace;
   }
 }
