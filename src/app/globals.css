@@ -58,3 +58,97 @@ body {
     font-family: "Courier Prime", "Courier New", monospace;
   }
 }
+
+.terminal-text {
+  position: relative;
+}
+
+@keyframes cursor-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.terminal-text::after {
+  content: "_";
+  animation: cursor-blink 1s step-end infinite;
+}
+
+.hero-gradient {
+  background: radial-gradient(
+      circle at top center,
+      rgba(34, 197, 94, 0.15) 0%,
+      transparent 70%
+    ),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 1) 100%);
+  position: relative;
+}
+
+.hero-gradient::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    transparent 0%,
+    rgba(34, 197, 94, 0.03) 50%,
+    transparent 100%
+  );
+  background-size: 100% 2px;
+  pointer-events: none;
+}
+
+.hero-gradient::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(34, 197, 94, 0.2) 20%,
+    rgba(34, 197, 94, 0.3) 50%,
+    rgba(34, 197, 94, 0.2) 80%,
+    transparent 100%
+  );
+  filter: blur(1px);
+}
+
+.gradient-bg {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.95) 100%
+  );
+  position: relative;
+}
+
+.gradient-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(34, 197, 94, 0.03) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(34, 197, 94, 0.03) 50%,
+    rgba(34, 197, 94, 0.03) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 4px 100%;
+  opacity: 0.1;
+  pointer-events: none;
+}
