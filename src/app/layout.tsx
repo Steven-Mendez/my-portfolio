@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import React from "react";
+import React, { Suspense } from "react";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import MatrixBackground from "@/components/matrix-background";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,6 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-sans">
+        <Suspense fallback={<div>Loading...</div>}>
+          <MatrixBackground />
+        </Suspense>
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>

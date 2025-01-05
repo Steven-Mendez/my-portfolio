@@ -72,7 +72,7 @@ export default function Hero() {
             >
               <h1
                 id="hero-heading"
-                className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300 terminal-text text-shadow"
+                className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300 text-shadow"
               >
                 {title}
               </h1>
@@ -91,14 +91,14 @@ export default function Hero() {
                   window.scrollTo(0, 0);
                   window.location.href = "/projects";
                 }}
-                className="w-full max-w-md primary-gradient hover:hover-gradient group"
+                className="w-full max-w-md primary-gradient group "
               >
                 {cta}
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
             </motion.div>
             <motion.div
-              className="flex flex-wrap justify-center gap-4 text-sm text-gray-400"
+              className="flex flex-wrap justify-center gap-4 text-sm text-gray-400 "
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.6 }}
@@ -115,10 +115,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <div
-        className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]"
-        aria-hidden="true"
-      />
     </section>
   );
 }
