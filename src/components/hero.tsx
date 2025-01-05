@@ -79,7 +79,6 @@ export default function Hero() {
               </h1>
               <p className="mx-auto max-w-[700px] text-gray-300 md:text-xl lg:text-2xl terminal-text text-shadow">
                 {text}
-                <span className="text-primary">_</span>
               </p>
             </motion.div>
             <motion.div
