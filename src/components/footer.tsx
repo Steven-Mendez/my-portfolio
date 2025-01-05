@@ -49,7 +49,7 @@ export default function Footer() {
               <span className="sr-only">{github}</span>
             </Link>
             <Link
-              href="https://linkedin.com/in/steven-mendez"
+              href="https://linkedin.com/in/steven-mendez-dev"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
