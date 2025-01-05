@@ -68,12 +68,12 @@ export default function Navbar() {
               <LanguageSwitcher />
               <div className="hidden md:flex items-center space-x-4">
                 <SocialLink
-                  href="https://github.com/Steven-Mendez"
+                  href="https://www.github.com/Steven-Mendez"
                   icon={Github}
                   label="GitHub"
                 />
                 <SocialLink
-                  href="https://linkedin.com/in/steven-mendez"
+                  href="https://www.linkedin.com/in/steven-mendez-dev"
                   icon={Linkedin}
                   label="LinkedIn"
                 />
