@@ -9,7 +9,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const content = {
   en: {
     title: "Steven Mendez",
-    subtitle: "Designing and delivering reliable software for modern needs",
+    subtitle: "Designing and coding software for modern needs",
     cta: "Explore My Code",
     skills: [
       "+2 Years Experience",
@@ -22,7 +22,7 @@ const content = {
   },
   es: {
     title: "Steven Méndez",
-    subtitle: "Diseñando y entregando software para necesidades modernas",
+    subtitle: "Diseñando y codificando software para necesidades modernas",
     cta: "Explora Mi Código",
     skills: [
       "+2 Años de Experiencia",
