@@ -1,6 +1,6 @@
 // src/lib/env.ts
 export const env = {
-    NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
+    NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || "https://steven-mendez.netlify.app",
 } as const;
 
 // Validate required environment variables

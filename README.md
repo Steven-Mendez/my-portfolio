@@ -58,7 +58,7 @@ npm install
 cp env.example .env.local
 
 # Or create .env.local manually with:
-NEXT_PUBLIC_SITE_URL=https://your-site-name.netlify.app
+NEXT_PUBLIC_SITE_URL=https://steven-mendez.netlify.app
 ```
 
 4. **Run the development server:**
@@ -77,7 +77,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the application.
    - Build command: `npm run build`
    - Publish directory: `out`
 3. **Add environment variables** in Netlify dashboard:
-   - `NEXT_PUBLIC_SITE_URL`: Your Netlify URL (e.g., https://your-site-name.netlify.app)
+   - `NEXT_PUBLIC_SITE_URL`: Your Netlify URL (e.g., https://steven-mendez.netlify.app)
 
 ### Manual Deployment
 
