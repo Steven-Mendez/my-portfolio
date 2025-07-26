@@ -6,6 +6,7 @@ import { env } from "@/lib/env";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+    metadataBase: new URL(env.NEXT_PUBLIC_SITE_URL),
     title: "Steven Mendez - Backend & AI Developer",
     description: "Passionate developer specializing in backend systems and artificial intelligence.",
     keywords: ["backend developer", "AI developer", "Python", "Node.js", "full-stack", "software engineer"],
