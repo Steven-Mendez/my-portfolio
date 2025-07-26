@@ -189,3 +189,8 @@
     will-change: opacity;
   }
 }
+
+/* Load non-critical styles asynchronously */
+@media print {
+  @import "tailwindcss/utilities";
+}

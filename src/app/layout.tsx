@@ -3,7 +3,12 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { env } from "@/lib/env";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+    subsets: ["latin"],
+    display: 'swap',
+    preload: true,
+    fallback: ['system-ui', 'arial']
+});
 
 export const metadata: Metadata = {
     metadataBase: new URL(env.NEXT_PUBLIC_SITE_URL),
