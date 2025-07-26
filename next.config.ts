@@ -16,7 +16,6 @@ const nextConfig: NextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
-  // Optimize for modern browsers
   transpilePackages: [],
 };
 

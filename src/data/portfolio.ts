@@ -51,11 +51,11 @@ export const uiTextsEN = {
     projects: {
         loadMore: "Load More",
         showLess: "Show Less",
-        emptyState: "🚀 Building the next big thing! Check back soon for cutting-edge projects that push the boundaries of what's possible.",
+        emptyState: "Currently working on new projects. Check back soon for updates on my latest work.",
         techStack: "Tech Stack",
         liveDemo: "Live Demo",
         code: "Code",
-        comingSoon: "🚀 Revolutionary projects coming soon!"
+        comingSoon: "Projects coming soon"
     },
     experience: {
         techStack: "Tech Stack"
@@ -87,11 +87,11 @@ export const uiTextsES = {
     projects: {
         loadMore: "Cargar Más",
         showLess: "Mostrar Menos",
-        emptyState: "🚀 ¡Construyendo la próxima gran cosa! Vuelve pronto para proyectos revolucionarios que empujan los límites de lo posible.",
+        emptyState: "Trabajando en nuevos proyectos. Pronto tendrás noticias de mis trabajos más recientes.",
         techStack: "Tecnologías",
         liveDemo: "Demo en Vivo",
         code: "Código",
-        comingSoon: "🚀 ¡Proyectos revolucionarios próximamente!"
+        comingSoon: "Próximamente"
     },
     experience: {
         techStack: "Tecnologías"
@@ -153,77 +153,9 @@ export const experiences: Experience[] = [
     }
 ]
 
-export const featuredProjects: Project[] = [
-    {
-        title: "Task Manager",
-        description: "Organize your to‑dos with create/read/update/delete, categories and due‑date reminders.",
-        description_en: "Task management application with priority-based organization, smart categorization, and deadline tracking. Features user-friendly interface and efficient task organization.",
-        description_es: "Organiza tus tareas con crear/leer/actualizar/eliminar, categorías y recordatorios de vencimiento.",
-        image: "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=400",
-        status: "Completed",
-        techStack: ["React", ".NET 5", "SQL Server", "Tailwind CSS"],
-        liveUrl: "#",
-        codeUrl: "#"
-    },
-    {
-        title: "E‑Commerce Demo",
-        description: "Browse products, add to cart, and simulate a checkout flow (no real payments).",
-        description_en: "E-commerce demonstration with product browsing, shopping cart functionality, and checkout simulation. Includes responsive design and user-friendly interface.",
-        description_es: "Explora productos, agrégalos al carrito y simula un flujo de compra (sin pagos reales).",
-        image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=400",
-        status: "Completed",
-        techStack: ["React", "FastAPI", "Stripe API", "PostgreSQL"],
-        liveUrl: "#",
-        codeUrl: "#"
-    },
-    {
-        title: "Chat App",
-        description: "Real‑time messaging in chat rooms with typing indicators and message history.",
-        description_en: "Real-time messaging application with chat rooms, typing indicators, and message history. Features instant communication and user-friendly interface.",
-        description_es: "Mensajería en tiempo real en salas de chat con indicadores de escritura e historial de mensajes.",
-        image: "https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=400",
-        status: "Completed",
-        techStack: ["React", "Socket.IO", "Node.js", "MongoDB"],
-        liveUrl: "#",
-        codeUrl: "#"
-    }
-]
+export const featuredProjects: Project[] = []
 
-export const pastProjects: Project[] = [
-    {
-        title: "Blog Platform",
-        description: "Write, edit and publish articles with user authentication and Markdown support.",
-        description_en: "Content management system with article creation, editing, and publishing capabilities. Features user authentication and Markdown support for rich content creation.",
-        description_es: "Escribe, edita y publica artículos con autenticación de usuario y soporte Markdown.",
-        image: "https://images.pexels.com/photos/262508/pexels-photo-262508.jpeg?auto=compress&cs=tinysrgb&w=400",
-        status: "Archived",
-        techStack: ["Django", "PostgreSQL", "Docker"],
-        liveUrl: "#",
-        codeUrl: "#"
-    },
-    {
-        title: "Weather Dashboard",
-        description: "Search any city and display current conditions plus a 5‑day forecast.",
-        description_en: "Weather application that displays current conditions and 5-day forecasts for any city. Features clean interface and accurate weather data integration.",
-        description_es: "Busca cualquier ciudad y muestra condiciones actuales más un pronóstico de 5 días.",
-        image: "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=400",
-        status: "Archived",
-        techStack: ["React", "FastAPI", "Weather API"],
-        liveUrl: "#",
-        codeUrl: "#"
-    },
-    {
-        title: "CI/CD Pipeline Demo",
-        description: "Automate building, testing and deploying a sample app to a cloud container.",
-        description_en: "CI/CD pipeline demonstration that automates building, testing, and deploying applications to cloud containers. Shows modern DevOps practices and automation workflows.",
-        description_es: "Automatiza la construcción, pruebas y despliegue de una app de ejemplo a un contenedor en la nube.",
-        image: "https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=400",
-        status: "Archived",
-        techStack: ["GitHub Actions", "Docker", "AWS ECS"],
-        liveUrl: "#",
-        codeUrl: "#"
-    }
-]
+export const pastProjects: Project[] = []
 
 export const education: Education = {
     degree: "Bachelor of Science in Computer Engineering",
