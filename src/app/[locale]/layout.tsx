@@ -122,7 +122,7 @@ function generateSchemaMarkup(locale: string) {
             }
         },
         "email": "stevenampaiz@gmail.com",
-        "telephone": "+50586308040",
+        "telephone": "+50581587176",
         "address": {
             "@type": "PostalAddress",
             "addressLocality": "Managua",

@@ -19,7 +19,7 @@ export const personalData = {
         },
         {
             icon: 'Phone',
-            href: 'tel:+50586308040',
+            href: 'tel:+50581587176',
             label: 'Phone',
             external: false
         },
