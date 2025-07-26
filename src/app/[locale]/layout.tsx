@@ -14,6 +14,8 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
     const { locale } = await params;
     const isSpanish = locale === 'es';
+    const currentUrl = `${env.NEXT_PUBLIC_SITE_URL}/${locale}`;
+
     return {
         title: isSpanish ? "Steven Mendez - Desarrollador Backend & IA" : "Steven Mendez - Backend & AI Developer",
         description: isSpanish
@@ -27,7 +29,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         openGraph: {
             type: "website",
             locale: locale,
-            url: `${env.NEXT_PUBLIC_SITE_URL}/${locale}`,
+            url: currentUrl,
             siteName: "Steven Mendez Portfolio",
             title: isSpanish ? "Steven Mendez - Desarrollador Backend & IA" : "Steven Mendez - Backend & AI Developer",
             description: isSpanish
@@ -62,11 +64,70 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
             },
         },
         alternates: {
+            canonical: currentUrl,
             languages: {
                 'en': '/en',
                 'es': '/es',
             },
         },
+    };
+}
+
+// Schema markup for the portfolio
+function generateSchemaMarkup(locale: string) {
+    const isSpanish = locale === 'es';
+
+    return {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Steven Mendez",
+        "jobTitle": isSpanish ? "Desarrollador Backend & IA" : "Backend & AI Developer",
+        "description": isSpanish
+            ? "Desarrollador apasionado especializado en sistemas backend e inteligencia artificial."
+            : "Passionate developer specializing in backend systems and artificial intelligence.",
+        "url": `${env.NEXT_PUBLIC_SITE_URL}/${locale}`,
+        "sameAs": [
+            "https://github.com/Steven-Mendez",
+            "https://www.linkedin.com/in/steven-mendez-dev/"
+        ],
+        "knowsAbout": isSpanish
+            ? [
+                "Desarrollo Backend",
+                "Inteligencia Artificial",
+                "Python",
+                "Node.js",
+                "APIs",
+                "Bases de Datos",
+                "Desarrollo Web"
+            ]
+            : [
+                "Backend Development",
+                "Artificial Intelligence",
+                "Python",
+                "Node.js",
+                "APIs",
+                "Databases",
+                "Web Development"
+            ],
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Freelance"
+        },
+        "hasOccupation": {
+            "@type": "Occupation",
+            "name": isSpanish ? "Desarrollador de Software" : "Software Developer",
+            "occupationLocation": {
+                "@type": "Place",
+                "name": "Remote"
+            }
+        },
+        "email": "stevenampaiz@gmail.com",
+        "telephone": "+50586308040",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Managua",
+            "addressCountry": "Nicaragua"
+        }
     };
 }
 
@@ -78,6 +139,8 @@ export default async function LocaleLayout({
     params: Promise<{ locale: string }>;
 }) {
     const { locale } = await params;
+    const schemaMarkup = generateSchemaMarkup(locale);
+
     return (
         <ThemeProvider
             attribute="class"
@@ -85,6 +148,12 @@ export default async function LocaleLayout({
             enableSystem
             disableTransitionOnChange
         >
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(schemaMarkup),
+                }}
+            />
             {children}
         </ThemeProvider>
     );

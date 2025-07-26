@@ -28,6 +28,39 @@ export const metadata: Metadata = {
         index: true,
         follow: true,
     },
+    alternates: {
+        canonical: env.NEXT_PUBLIC_SITE_URL,
+    },
+};
+
+// Schema markup for the website
+const schemaMarkup = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Steven Mendez",
+    "jobTitle": "Backend & AI Developer",
+    "description": "Passionate developer specializing in backend systems and artificial intelligence.",
+    "url": env.NEXT_PUBLIC_SITE_URL,
+    "sameAs": [
+        "https://github.com/Steven-Mendez",
+        "https://www.linkedin.com/in/steven-mendez-dev/"
+    ],
+    "knowsAbout": [
+        "Backend Development",
+        "Artificial Intelligence",
+        "Python",
+        "Node.js",
+        "APIs",
+        "Databases",
+        "Web Development"
+    ],
+    "email": "stevenampaiz@gmail.com",
+    "telephone": "+50586308040",
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Managua",
+        "addressCountry": "Nicaragua"
+    }
 };
 
 export default function RootLayout({
@@ -37,6 +70,14 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+            <head>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify(schemaMarkup),
+                    }}
+                />
+            </head>
             <body className={inter.className}>
                 {children}
             </body>
