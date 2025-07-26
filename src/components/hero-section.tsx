@@ -28,6 +28,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({ data }: HeroSectionProps) {
     const { name, title, location, bio, contacts, cv } = data.personal;
+    const initials = name.split(' ').map((n: string) => n[0]).join('');
 
     return (
         <main className="w-full flex flex-col items-start py-6 sm:py-8 mb-6 sm:mb-8">
@@ -38,14 +39,14 @@ export default function HeroSection({ data }: HeroSectionProps) {
                 </h1>
                 {/* Avatar for mobile only, below h1 */}
                 <div className="flex md:hidden w-full justify-center my-3 sm:my-4">
-                    <Avatar className="w-32 h-32 sm:w-40 sm:h-40 mx-auto">
+                    <Avatar className="w-32 h-32 sm:w-40 sm:h-40 mx-auto bg-white dark:bg-white">
                         <AvatarImage
                             src="/image.png"
                             alt={`Portrait of ${name}`}
                             className="w-full h-full object-cover rounded-2xl"
                         />
-                        <AvatarFallback className="text-2xl sm:text-3xl">
-                            {name.split(' ').map((n: string) => n[0]).join('')}
+                        <AvatarFallback className="text-2xl sm:text-3xl bg-white dark:bg-white text-gray-900">
+                            {initials}
                         </AvatarFallback>
                     </Avatar>
                 </div>
@@ -64,14 +65,14 @@ export default function HeroSection({ data }: HeroSectionProps) {
                     </div>
                     {/* Right: Avatar for desktop */}
                     <div className="hidden md:flex flex-shrink-0 justify-center w-full md:w-auto mt-8 md:mt-0 order-1 md:order-2">
-                        <Avatar className="w-56 h-56 md:w-72 md:h-72 mx-auto">
+                        <Avatar className="w-56 h-56 md:w-72 md:h-72 mx-auto bg-white dark:bg-white">
                             <AvatarImage
                                 src="/image.png"
                                 alt={`Portrait of ${name}`}
                                 className="w-full h-full object-cover rounded-2xl"
                             />
-                            <AvatarFallback className="text-3xl">
-                                {name.split(' ').map((n: string) => n[0]).join('')}
+                            <AvatarFallback className="text-3xl bg-white dark:bg-white text-gray-900">
+                                {initials}
                             </AvatarFallback>
                         </Avatar>
                     </div>

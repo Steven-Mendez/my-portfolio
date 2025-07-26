@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   images: {
     unoptimized: true,
+    formats: ['image/webp', 'image/avif'],
   },
   experimental: {
     optimizePackageImports: ['lucide-react', 'react-icons'],
@@ -12,6 +13,12 @@ const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
   generateEtags: false,
+  swcMinify: true,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+  // Optimize for modern browsers
+  transpilePackages: [],
 };
 
 export default nextConfig;
