@@ -68,7 +68,7 @@ export default function ProjectsSection({ data }: ProjectsSectionProps) {
             {allProjects.length === 0 ? (
                 <div className="flex flex-col items-center justify-center py-12 sm:py-16 text-center text-gray-500 dark:text-gray-400">
                     <FolderOpen className="w-10 h-10 sm:w-12 sm:h-12 mb-3 sm:mb-4 text-gray-300 dark:text-gray-600" />
-                    <h3 className="text-lg sm:text-xl font-semibold mb-2 text-gray-700 dark:text-gray-300">{data.projects.comingSoon}</h3>
+                    <p className="text-lg sm:text-xl font-semibold mb-2 text-gray-700 dark:text-gray-300">{data.projects.comingSoon}</p>
                     <p className="max-w-md text-sm sm:text-base text-gray-500 dark:text-gray-400 px-4">{data.projects.emptyState}</p>
                 </div>
             ) : (
@@ -102,9 +102,9 @@ export default function ProjectsSection({ data }: ProjectsSectionProps) {
                                     {/* Content section */}
                                     <div className="flex-1 flex flex-col p-6">
                                         <div className="mb-4">
-                                            <CardTitle className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                                            <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
                                                 {project.title}
-                                            </CardTitle>
+                                            </h3>
                                             <CardDescription className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                                                 {project.description}
                                             </CardDescription>

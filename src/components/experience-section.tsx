@@ -63,14 +63,14 @@ export default function ExperienceSection({ data }: ExperienceSectionProps) {
                         <div className="absolute left-0 top-3.5 flex size-4 items-center justify-center rounded-full bg-gray-900 dark:bg-gray-100 ring-4 ring-white dark:ring-gray-900 shadow-sm" />
 
                         {/* Job Title */}
-                        <h4 className="rounded-xl py-2 text-lg sm:text-xl font-bold tracking-tight mb-2 text-gray-900 dark:text-gray-100">
+                        <h3 className="rounded-xl py-2 text-lg sm:text-xl font-bold tracking-tight mb-2 text-gray-900 dark:text-gray-100">
                             {exp.title}
-                        </h4>
+                        </h3>
 
                         {/* Period */}
-                        <h5 className="text-sm sm:text-md text-gray-600 dark:text-gray-300 rounded-xl tracking-tight mb-2 font-medium">
+                        <p className="text-sm sm:text-md text-gray-600 dark:text-gray-300 rounded-xl tracking-tight mb-2 font-medium">
                             {exp.period}
-                        </h5>
+                        </p>
 
                         {/* Company */}
                         <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4 text-sm text-gray-700 dark:text-gray-200">
