@@ -40,9 +40,9 @@ export default function HeroSection({ data }: HeroSectionProps) {
     const { name, title, location, bio, contacts, cv } = data.personal;
 
     return (
-        <section className="w-full flex flex-col items-start py-6 sm:py-8 mb-6 sm:mb-8">
+        <main className="w-full flex flex-col items-start py-6 sm:py-8 mb-6 sm:mb-8">
             {/* Main Hero Content */}
-            <div className="w-full mb-4 sm:mb-6">
+            <header className="w-full mb-4 sm:mb-6">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-gray-100 mb-1 tracking-tight leading-tight text-center md:text-left w-full">
                     {name}
                 </h1>
@@ -51,7 +51,7 @@ export default function HeroSection({ data }: HeroSectionProps) {
                     <Avatar className="w-32 h-32 sm:w-40 sm:h-40 mx-auto">
                         <AvatarImage
                             src="/image.png"
-                            alt={name}
+                            alt={`Portrait of ${name}`}
                             className="w-full h-full object-cover rounded-2xl"
                         />
                         <AvatarFallback className="text-2xl sm:text-3xl">
@@ -77,7 +77,7 @@ export default function HeroSection({ data }: HeroSectionProps) {
                         <Avatar className="w-56 h-56 md:w-72 md:h-72 mx-auto">
                             <AvatarImage
                                 src="/image.png"
-                                alt={name}
+                                alt={`Portrait of ${name}`}
                                 className="w-full h-full object-cover rounded-2xl"
                             />
                             <AvatarFallback className="text-3xl">
@@ -86,21 +86,21 @@ export default function HeroSection({ data }: HeroSectionProps) {
                         </Avatar>
                     </div>
                 </div>
-            </div>
+            </header>
 
             {/* Contact Information Section */}
-            <div className="w-full">
+            <footer className="w-full">
                 {/* Geolocation Section */}
-                <div className="flex items-center justify-center md:justify-start gap-2 text-gray-500 dark:text-gray-400 text-xs sm:text-sm mb-4 sm:mb-6">
-                    <MapPin className="w-3 h-3 sm:w-4 sm:h-4" />
+                <address className="flex items-center justify-center md:justify-start gap-2 text-gray-500 dark:text-gray-400 text-xs sm:text-sm mb-4 sm:mb-6 not-italic">
+                    <MapPin className="w-3 h-3 sm:w-4 sm:h-4" aria-hidden="true" />
                     <span>{location}</span>
-                </div>
+                </address>
 
                 {/* Contact Icons + CV Button Row */}
                 <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
                     {/* Contact Icons */}
                     <TooltipProvider>
-                        <div className="flex gap-2 sm:gap-3 justify-center md:justify-start">
+                        <nav className="flex gap-2 sm:gap-3 justify-center md:justify-start" aria-label="Contact information">
                             {contacts.map((contact) => {
                                 const IconComponent = iconMap[contact.icon as keyof typeof iconMap];
 
@@ -119,7 +119,7 @@ export default function HeroSection({ data }: HeroSectionProps) {
                                                     target={contact.external ? '_blank' : undefined}
                                                     rel={contact.external ? 'noopener noreferrer' : undefined}
                                                 >
-                                                    <IconComponent className="w-4 h-4 sm:w-5 sm:h-5" />
+                                                    <IconComponent className="w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
                                                 </a>
                                             </Button>
                                         </TooltipTrigger>
@@ -129,7 +129,7 @@ export default function HeroSection({ data }: HeroSectionProps) {
                                     </Tooltip>
                                 );
                             })}
-                        </div>
+                        </nav>
                     </TooltipProvider>
 
                     {/* CV Download Button - All Devices */}
@@ -142,14 +142,15 @@ export default function HeroSection({ data }: HeroSectionProps) {
                                 href={`/${cv.fileName}`}
                                 download={cv.fileName}
                                 className="flex items-center gap-2"
+                                aria-label={`Download ${cv.fileName}`}
                             >
-                                <Download className="w-4 h-4" />
+                                <Download className="w-4 h-4" aria-hidden="true" />
                                 {cv.downloadText}
                             </a>
                         </Button>
                     </div>
                 </div>
-            </div>
-        </section>
+            </footer>
+        </main>
     );
 } 

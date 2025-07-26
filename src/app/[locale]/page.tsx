@@ -8,10 +8,10 @@ import { getPortfolioData } from '@/data/portfolio'
 
 // Generate static params for static export
 export function generateStaticParams() {
-    return [
-        { locale: 'en' },
-        { locale: 'es' }
-    ];
+  return [
+    { locale: 'en' },
+    { locale: 'es' }
+  ];
 }
 
 interface PageProps {
@@ -34,7 +34,7 @@ export default async function HomePage({ params }: PageProps) {
       </div>
 
       {/* Floating Controls */}
-      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col gap-3">
+      <aside className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col gap-3" aria-label="Page controls">
         {/* Language Toggle */}
         <div className="bg-white dark:bg-gray-800 rounded-full shadow-lg w-12 h-12 flex items-center justify-center dark:shadow-gray-700/30 ring-1 ring-gray-200 dark:ring-gray-700 transition-shadow duration-200 backdrop-blur-sm hover:shadow-xl">
           <SimpleLanguageToggle />
@@ -43,7 +43,7 @@ export default async function HomePage({ params }: PageProps) {
         <div className="bg-white dark:bg-gray-800 rounded-full shadow-lg dark:shadow-gray-700/30 ring-1 ring-gray-200 dark:ring-gray-700 transition-shadow duration-200 backdrop-blur-sm hover:shadow-xl">
           <ThemeToggle />
         </div>
-      </div>
+      </aside>
     </div>
   )
 } 
