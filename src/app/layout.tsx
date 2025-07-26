@@ -89,7 +89,6 @@ export default function RootLayout({
                 {/* Preconnect to external domains for faster loading */}
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-                <link rel="preconnect" href="https://images.pexels.com" />
 
                 {/* DNS prefetch for other domains */}
                 <link rel="dns-prefetch" href="https://github.com" />
