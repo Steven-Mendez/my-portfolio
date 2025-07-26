@@ -1,6 +1,10 @@
 import { MetadataRoute } from 'next'
 import { env } from '@/lib/env'
 
+// Required for static export
+export const dynamic = 'force-static'
+export const revalidate = false
+
 export default function robots(): MetadataRoute.Robots {
     const baseUrl = env.NEXT_PUBLIC_SITE_URL
 

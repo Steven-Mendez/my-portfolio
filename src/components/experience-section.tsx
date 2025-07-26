@@ -31,7 +31,7 @@ interface ExperienceSectionProps {
 export default function ExperienceSection({ data }: ExperienceSectionProps) {
     const [visibleExperiences, setVisibleExperiences] = useState(INITIAL_EXPERIENCES_COUNT)
 
-    const { sections, projects, experience } = data;
+    const { experience } = data;
 
     const handleLoadMore = () => {
         setVisibleExperiences(prev => Math.min(prev + 2, experience.length))

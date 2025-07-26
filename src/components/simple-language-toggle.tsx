@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { usePathname, useRouter } from "next/navigation";
+import Image from "next/image";
 
 export function SimpleLanguageToggle() {
   const pathname = usePathname();
@@ -29,10 +30,11 @@ export function SimpleLanguageToggle() {
         onClick={handleLanguageChange}
         aria-label={`Switch to ${targetLocale === 'en' ? 'English' : 'Español'}`}
       >
-        <img
+        <Image
           src={flagSrc}
           alt={targetLocale === 'en' ? 'English' : 'Español'}
-          className="w-full h-full object-cover"
+          fill
+          className="object-cover"
           aria-hidden="true"
         />
         {/* Overlay visible solo en hover */}

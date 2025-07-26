@@ -46,7 +46,7 @@ interface ProjectsSectionProps {
 export default function ProjectsSection({ data }: ProjectsSectionProps) {
     const [visibleProjects, setVisibleProjects] = useState(INITIAL_PROJECTS_COUNT)
 
-    const { sections, projects } = data;
+    const { projects } = data;
     const allProjects = [...projects.featured, ...projects.past];
 
     const handleLoadMore = () => {
