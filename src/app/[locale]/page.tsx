@@ -2,8 +2,7 @@ import HeroSection from '@/components/hero-section'
 import ProjectsSection from '@/components/projects-section'
 import ExperienceSection from '@/components/experience-section'
 import Footer from '@/components/footer'
-import { ThemeToggle } from '@/components/theme-toggle'
-import { SimpleLanguageToggle } from '@/components/simple-language-toggle'
+import FloatingControls from '@/components/floating-controls'
 import { getPortfolioData } from '@/data/portfolio'
 
 // Generate static params for static export
@@ -34,16 +33,7 @@ export default async function HomePage({ params }: PageProps) {
       </div>
 
       {/* Floating Controls */}
-      <aside className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col gap-3" aria-label="Page controls">
-        {/* Language Toggle */}
-        <div className="bg-white dark:bg-gray-800 rounded-full shadow-lg w-12 h-12 flex items-center justify-center dark:shadow-gray-700/30 ring-1 ring-gray-200 dark:ring-gray-700 transition-shadow duration-200 backdrop-blur-sm hover:shadow-xl">
-          <SimpleLanguageToggle />
-        </div>
-        {/* Theme Toggle */}
-        <div className="bg-white dark:bg-gray-800 rounded-full shadow-lg dark:shadow-gray-700/30 ring-1 ring-gray-200 dark:ring-gray-700 transition-shadow duration-200 backdrop-blur-sm hover:shadow-xl">
-          <ThemeToggle />
-        </div>
-      </aside>
+      <FloatingControls />
     </div>
   )
 } 
