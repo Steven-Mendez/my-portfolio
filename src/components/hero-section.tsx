@@ -22,24 +22,27 @@ interface HeroSectionProps {
     data: {
         personal: {
             name: string;
-            title: string;
+            title: string; // role / jobTitle
             location: string;
             bio: string[];
             contacts: Contact[];
             cv: { fileName: string; downloadText: string };
         };
     };
+    /** Hide avatar column (e.g. for minimal variants) */
+    showAvatar?: boolean;
 }
 
 // ----------------- Helpers -----------------
 /** Derive up to three uppercase initials for the avatar fallback. */
 function getInitials(fullName: string): string {
+    if (!fullName || !fullName.trim()) return ""; // safe guard
     const parts = fullName.trim().split(/\s+/);
     if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
     return parts.map(p => p.charAt(0)).join("").slice(0, 3).toUpperCase();
 }
 
-// ----------------- Private Subcomponents -----------------
+// ----------------- Private Sub-components -----------------
 /** Props for Header (name + role). */
 interface HeaderProps { name: string; title: string; }
 /** Heading block (H1 name + H2 role). */
@@ -78,7 +81,7 @@ interface MetaActionsProps {
 }
 /** Location, contacts and CV download CTA cluster. */
 const MetaActions = ({ location, contacts, cv }: MetaActionsProps) => (
-    <div className="mt-8 flex flex-wrap items-center gap-4">
+    <div className="mt-8 flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-4">
         <address className="flex items-center gap-2 text-muted-foreground text-sm not-italic">
             <MapPin className="w-4 h-4" aria-hidden="true" />
             <span>{location}</span>
@@ -106,14 +109,14 @@ const MetaActions = ({ location, contacts, cv }: MetaActionsProps) => (
 interface AvatarBlockProps { name: string; initials: string; }
 /** Portrait avatar with fallback initials. */
 const AvatarBlock = ({ name, initials }: AvatarBlockProps) => (
-    <div className="flex-shrink-0 self-center">
+    <figure className="flex-shrink-0 self-center group">
         <Avatar
-            className="w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 xl:w-80 xl:h-80 dark:shadow-sm dark:ring-1 dark:ring-border/40"
+            className="w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 xl:w-80 xl:h-80 ring-1 ring-border/20 dark:ring-border/40 transition-transform duration-300 ease-out group-hover:scale-[1.02] motion-reduce:transform-none"
             style={{ backgroundColor: "var(--avatar-background)" }}
         >
             <AvatarImage
                 src="/image.png"
-                alt={name}
+                alt={`${name} portrait`}
                 className="w-full h-full object-cover rounded-2xl"
             />
             <AvatarFallback
@@ -126,12 +129,13 @@ const AvatarBlock = ({ name, initials }: AvatarBlockProps) => (
                 {initials}
             </AvatarFallback>
         </Avatar>
-    </div>
+        <figcaption className="sr-only">{name}</figcaption>
+    </figure>
 );
 
 // ----------------- Main Component -----------------
 /** Main exported HeroSection container. */
-export default function HeroSection({ data }: HeroSectionProps) {
+export default function HeroSection({ data, showAvatar = true }: HeroSectionProps) {
     const { name, title, location, bio, contacts, cv } = data.personal;
     const initials = getInitials(name);
 
@@ -139,14 +143,15 @@ export default function HeroSection({ data }: HeroSectionProps) {
         <section
             className="w-full py-6 sm:py-8 mb-6 sm:mb-8"
             aria-labelledby="hero-name"
+            aria-label={`${name} profile section`}
         >
             <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-10 md:gap-12 items-center">
                 <div className="min-w-0 max-w-3xl">
                     <Header name={name} title={title} />
-                    <Bio bio={bio} />
+                    {bio.length > 0 && <Bio bio={bio} />}
                     <MetaActions location={location} contacts={contacts} cv={cv} />
                 </div>
-                <AvatarBlock name={name} initials={initials} />
+                {showAvatar && <AvatarBlock name={name} initials={initials} />}
             </div>
         </section>
     );
