@@ -1,8 +1,15 @@
+/**
+ * HeroSection module.
+ * Presentational banner showing identity (name, role), bio paragraphs, location,
+ * contact links, curriculum download action, and avatar. Pure UI (no side effects).
+ */
 import { MapPin, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import ContactLinks from "./contact-links";
 
+// ----------------- Types -----------------
+/** Contact link metadata. */
 interface Contact {
     icon: string;
     href: string;
@@ -10,6 +17,7 @@ interface Contact {
     external: boolean;
 }
 
+/** External data shape expected by HeroSection. */
 interface HeroSectionProps {
     data: {
         personal: {
@@ -18,99 +26,128 @@ interface HeroSectionProps {
             location: string;
             bio: string[];
             contacts: Contact[];
-            cv: {
-                fileName: string;
-                downloadText: string;
-            };
+            cv: { fileName: string; downloadText: string };
         };
     };
 }
 
+// ----------------- Helpers -----------------
+/** Derive up to three uppercase initials for the avatar fallback. */
+function getInitials(fullName: string): string {
+    const parts = fullName.trim().split(/\s+/);
+    if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+    return parts.map(p => p.charAt(0)).join("").slice(0, 3).toUpperCase();
+}
+
+// ----------------- Private Subcomponents -----------------
+/** Props for Header (name + role). */
+interface HeaderProps { name: string; title: string; }
+/** Heading block (H1 name + H2 role). */
+const Header = ({ name, title }: HeaderProps) => (
+    <>
+        <h1
+            id="hero-name"
+            className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground tracking-tight leading-tight mb-3"
+        >
+            {name}
+        </h1>
+        <h2 className="text-xl md:text-2xl font-semibold text-brand mb-5">
+            {title}
+        </h2>
+    </>
+);
+
+/** Props for Bio (paragraph list). */
+interface BioProps { bio: string[]; }
+/** Bio paragraphs list. */
+const Bio = ({ bio }: BioProps) => (
+    <div className="space-y-4 max-w-prose md:max-w-none">
+        {bio.map((paragraph, index) => (
+            <p key={index} className="text-muted-foreground leading-relaxed text-base">
+                {paragraph}
+            </p>
+        ))}
+    </div>
+);
+
+/** Props for MetaActions (location, contacts, CV metadata). */
+interface MetaActionsProps {
+    location: string;
+    contacts: Contact[];
+    cv: { fileName: string; downloadText: string };
+}
+/** Location, contacts and CV download CTA cluster. */
+const MetaActions = ({ location, contacts, cv }: MetaActionsProps) => (
+    <div className="mt-8 flex flex-wrap items-center gap-4">
+        <address className="flex items-center gap-2 text-muted-foreground text-sm not-italic">
+            <MapPin className="w-4 h-4" aria-hidden="true" />
+            <span>{location}</span>
+        </address>
+        <ContactLinks contacts={contacts} />
+        <Button
+            asChild
+            variant="brand"
+            size="sm"
+            className="shadow-md focus-visible:ring-ring/40"
+        >
+            <a
+                href={`/${cv.fileName}`}
+                download={cv.fileName}
+                aria-label={`Download ${cv.fileName}`}
+            >
+                <Download className="w-4 h-4" aria-hidden="true" />
+                {cv.downloadText}
+            </a>
+        </Button>
+    </div>
+);
+
+/** Props for AvatarBlock (name + derived initials). */
+interface AvatarBlockProps { name: string; initials: string; }
+/** Portrait avatar with fallback initials. */
+const AvatarBlock = ({ name, initials }: AvatarBlockProps) => (
+    <div className="flex-shrink-0 self-center">
+        <Avatar
+            className="w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 xl:w-80 xl:h-80 dark:shadow-sm dark:ring-1 dark:ring-border/40"
+            style={{ backgroundColor: "var(--avatar-background)" }}
+        >
+            <AvatarImage
+                src="/image.png"
+                alt={name}
+                className="w-full h-full object-cover rounded-2xl"
+            />
+            <AvatarFallback
+                className="text-3xl"
+                style={{
+                    backgroundColor: "var(--avatar-background)",
+                    color: "var(--foreground)",
+                }}
+            >
+                {initials}
+            </AvatarFallback>
+        </Avatar>
+    </div>
+);
+
+// ----------------- Main Component -----------------
+/** Main exported HeroSection container. */
 export default function HeroSection({ data }: HeroSectionProps) {
     const { name, title, location, bio, contacts, cv } = data.personal;
-    const initials = name.split(' ').map((n: string) => n[0]).join('');
+    const initials = getInitials(name);
 
     return (
-        <main className="w-full flex flex-col items-start py-6 sm:py-8 mb-6 sm:mb-8">
-            {/* Main Hero Content */}
-            <header className="w-full mb-4 sm:mb-6">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground mb-1 tracking-tight leading-tight text-center md:text-left w-full">
-                    {name}
-                </h1>
-                {/* Avatar for mobile only, below h1 */}
-                <div className="flex md:hidden w-full justify-center my-3 sm:my-4">
-                    <Avatar className="w-32 h-32 sm:w-40 sm:h-40 mx-auto" style={{ backgroundColor: 'var(--avatar-background)' }}>
-                        <AvatarImage
-                            src="/image.png"
-                            alt={`Portrait of ${name}`}
-                            className="w-full h-full object-cover rounded-2xl"
-                        />
-                        <AvatarFallback className="text-2xl sm:text-3xl" style={{ backgroundColor: 'var(--avatar-background)', color: 'var(--foreground)' }}>
-                            {initials}
-                        </AvatarFallback>
-                    </Avatar>
+        <section
+            className="w-full py-6 sm:py-8 mb-6 sm:mb-8"
+            aria-labelledby="hero-name"
+        >
+            <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-10 md:gap-12 items-center">
+                <div className="min-w-0 max-w-3xl">
+                    <Header name={name} title={title} />
+                    <Bio bio={bio} />
+                    <MetaActions location={location} contacts={contacts} cv={cv} />
                 </div>
-                {/* Main content */}
-                <div className="w-full flex flex-col md:flex-row items-start gap-4 sm:gap-6">
-                    {/* Left: Subtitle and description */}
-                    <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left order-2 md:order-1">
-                        <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-brand mb-4 sm:mb-6 text-center md:text-left">
-                            {title}
-                        </h2>
-                        {bio.map((paragraph: string, index: number) => (
-                            <p key={index} className="text-muted-foreground mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base px-2 sm:px-0">
-                                {paragraph}
-                            </p>
-                        ))}
-                    </div>
-                    {/* Right: Avatar for desktop */}
-                    <div className="hidden md:flex flex-shrink-0 justify-center w-full md:w-auto mt-8 md:mt-0 order-1 md:order-2">
-                        <Avatar className="w-56 h-56 md:w-72 md:h-72 mx-auto" style={{ backgroundColor: 'var(--avatar-background)' }}>
-                            <AvatarImage
-                                src="/image.png"
-                                alt={`Portrait of ${name}`}
-                                className="w-full h-full object-cover rounded-2xl"
-                            />
-                            <AvatarFallback className="text-3xl" style={{ backgroundColor: 'var(--avatar-background)', color: 'var(--foreground)' }}>
-                                {initials}
-                            </AvatarFallback>
-                        </Avatar>
-                    </div>
-                </div>
-            </header>
-
-            {/* Contact Information Section */}
-            <footer className="w-full">
-                {/* Geolocation Section */}
-                <address className="flex items-center justify-center md:justify-start gap-2 text-muted-foreground text-xs sm:text-sm mb-4 sm:mb-6 not-italic">
-                    <MapPin className="w-3 h-3 sm:w-4 sm:h-4" aria-hidden="true" />
-                    <span>{location}</span>
-                </address>
-
-                {/* Contact Icons + CV Button Row */}
-                <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
-                    {/* Contact Icons */}
-                    <ContactLinks contacts={contacts} />
-
-                    {/* CV Download Button - All Devices */}
-                    <div className="flex justify-center md:justify-end">
-                        <Button
-                            asChild
-                            className="bg-brand hover:bg-brand/90 text-brand-foreground px-6 py-2 text-sm font-medium shadow-lg hover:shadow-xl transition-all duration-200"
-                        >
-                            <a
-                                href={`/${cv.fileName}`}
-                                download={cv.fileName}
-                                className="flex items-center gap-2"
-                                aria-label={`Download ${cv.fileName}`}
-                            >
-                                <Download className="w-4 h-4" aria-hidden="true" />
-                                {cv.downloadText}
-                            </a>
-                        </Button>
-                    </div>
-                </div>
-            </footer>
-        </main>
+                <AvatarBlock name={name} initials={initials} />
+            </div>
+        </section>
     );
-} 
+}
