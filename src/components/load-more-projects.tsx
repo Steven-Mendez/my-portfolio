@@ -49,7 +49,7 @@ export default function LoadMoreProjects({ projects, loadMoreText, techStackText
                         <Card
                             key={idx}
                             role="listitem"
-                            className={`group border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:border-gray-300 dark:hover:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700/80 transition-all duration-300 shadow-sm hover:shadow-lg dark:shadow-gray-900/20 dark:hover:shadow-xl rounded-xl overflow-hidden flex flex-col w-full p-0 ${isLastOdd ? 'sm:col-span-2 sm:max-w-md sm:mx-auto' : ''
+                            className={`group border-2 border-border bg-card hover:bg-card/90 transition-all duration-300 shadow-sm hover:shadow-lg hover:border-foreground/40 rounded-xl overflow-hidden flex flex-col w-full p-0 ${isLastOdd ? 'sm:col-span-2 sm:max-w-md sm:mx-auto' : ''
                                 }`}
                         >
                             {/* Image section - only if image exists */}
@@ -69,17 +69,17 @@ export default function LoadMoreProjects({ projects, loadMoreText, techStackText
                             {/* Content section */}
                             <div className="flex-1 flex flex-col p-6">
                                 <header className="mb-4">
-                                    <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                                    <h3 className="text-lg font-semibold text-foreground mb-2">
                                         {project.title}
                                     </h3>
-                                    <CardDescription className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                                    <CardDescription className="text-muted-foreground text-sm leading-relaxed">
                                         {project.description}
                                     </CardDescription>
                                 </header>
 
                                 <div className="flex-1 flex flex-col justify-between">
                                     <div className="mb-4">
-                                        <div className="text-xs text-gray-500 dark:text-gray-400 mb-3 font-medium tracking-wide uppercase">{techStackText}</div>
+                                        <div className="text-xs text-muted-foreground mb-3 font-medium tracking-wide uppercase">{techStackText}</div>
                                         <div className="flex flex-wrap gap-2" role="list" aria-label={`Technologies used in ${project.title}`}>
                                             {project.technologies.map((tech: string, i: number) => (
                                                 <span
@@ -95,14 +95,14 @@ export default function LoadMoreProjects({ projects, loadMoreText, techStackText
 
                                     <nav className="flex gap-3 mt-auto" aria-label={`Links for ${project.title} project`}>
                                         {project.demoUrl && (
-                                            <Button asChild size="sm" className="flex-1 text-sm font-medium bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors">
+                                            <Button asChild size="sm" className="flex-1 text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
                                                 <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" aria-label={`View live demo of ${project.title}`}>
                                                     <ExternalLink className="w-4 h-4 mr-2" aria-hidden="true" /> {liveDemoText}
                                                 </a>
                                             </Button>
                                         )}
                                         {project.githubUrl && (
-                                            <Button asChild variant="outline" size="sm" className="flex-1 text-sm font-medium border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-400 dark:hover:border-gray-500 transition-all">
+                                            <Button asChild variant="outline" size="sm" className="flex-1 text-sm font-medium border-2 border-border text-foreground hover:bg-foreground/5 dark:hover:bg-foreground/10 hover:border-foreground/40 transition-all">
                                                 <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label={`View source code of ${project.title} on GitHub`}>
                                                     <Github className="w-4 h-4 mr-2" aria-hidden="true" /> {codeText}
                                                 </a>
@@ -123,7 +123,7 @@ export default function LoadMoreProjects({ projects, loadMoreText, techStackText
                         onClick={handleLoadMore}
                         variant="outline"
                         size="sm"
-                        className="text-sm font-medium min-w-32 px-8 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-400 dark:hover:border-gray-500 transition-all"
+                        className="text-sm font-medium min-w-32 px-8 border-2 border-border text-foreground hover:bg-foreground/5 dark:hover:bg-foreground/10 hover:border-foreground/40 transition-all"
                         aria-label={`Load ${Math.min(2, projects.length - visibleProjects)} more projects`}
                     >
                         <ChevronDown className="w-4 h-4 mr-2" aria-hidden="true" />
