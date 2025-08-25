@@ -22,17 +22,13 @@ export default async function HomePage({ params }: PageProps) {
   const data = getPortfolioData(locale);
 
   return (
-  <div className="min-h-screen bg-background transition-colors">
-      <div className="max-w-4xl mx-auto px-3 sm:px-4 py-8 sm:py-12">
+    <div className="min-h-screen bg-background transition-colors">
+      <main className="max-w-4xl mx-auto px-3 sm:px-4 py-6 sm:py-10 space-y-12 sm:space-y-14">
         <HeroSection data={data} />
-      </div>
-      <div className="max-w-4xl mx-auto px-3 sm:px-4">
         <ProjectsSection data={data} />
         <ExperienceSection data={data} />
-        <Footer />
-      </div>
-
-      {/* Floating Controls */}
+        <Footer locale={locale} footer={data.footer} />
+      </main>
       <FloatingControls />
     </div>
   )

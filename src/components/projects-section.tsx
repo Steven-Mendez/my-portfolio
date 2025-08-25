@@ -43,14 +43,14 @@ export default function ProjectsSection({ data }: ProjectsSectionProps) {
     const allProjects = [...projects.featured, ...projects.past];
 
     return (
-        <section className="mb-12 sm:mb-16" aria-labelledby="projects-heading">
+        <section className="w-full" aria-labelledby="projects-heading">
             <header className="flex items-center gap-3 mb-2">
                 <Code2 className="w-6 h-6 sm:w-7 sm:h-7 text-foreground/80" aria-hidden="true" />
                 <h2 id="projects-heading" className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-gray-100">
                     {data.sections.projects}
                 </h2>
             </header>
-            <Separator className="mb-6 sm:mb-8" />
+            <Separator className="my-4 sm:my-5" />
             {allProjects.length === 0 ? (
                 <div className="flex flex-col items-center justify-center py-12 sm:py-16 text-center text-muted-foreground" role="status" aria-live="polite">
                     <FolderOpen className="w-10 h-10 sm:w-12 sm:h-12 mb-3 sm:mb-4 text-muted-foreground/60" aria-hidden="true" />

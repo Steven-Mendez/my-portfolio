@@ -3,6 +3,7 @@
 import { Github, Linkedin, Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
+import { Contact } from "@/types";
 
 // Map icon names to components
 const iconMap = {
@@ -12,12 +13,6 @@ const iconMap = {
     Linkedin,
 };
 
-interface Contact {
-    icon: string;
-    href: string;
-    label: string;
-    external: boolean;
-}
 
 interface ContactLinksProps {
     contacts: Contact[];
@@ -37,7 +32,7 @@ export default function ContactLinks({ contacts }: ContactLinksProps) {
                                     asChild
                                     variant="ghost"
                                     size="icon"
-                                    className="rounded-full border border-border hover:bg-muted/70 transition-colors w-9 h-9 sm:w-10 sm:h-10"
+                                    className="rounded-full w-9 h-9 sm:w-10 sm:h-10 border border-border/60 dark:border-border/40 hover:border-brand/60 hover:bg-brand/10 dark:hover:bg-brand/15 hover:text-brand focus-visible:ring-brand/40 focus-visible:border-brand transition-colors"
                                     aria-label={contact.label}
                                 >
                                     <a

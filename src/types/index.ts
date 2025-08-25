@@ -29,4 +29,12 @@ export interface Education {
     institution: string
     duration: string
     location: string
-} 
+}
+
+// Reusable contact link metadata used across hero and contact components
+export interface Contact {
+    icon: string;
+    href: string;
+    label: string;
+    external: boolean;
+}

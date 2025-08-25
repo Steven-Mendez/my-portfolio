@@ -10,7 +10,7 @@ interface Experience {
     title: string;
     company: string;
     period: string;
-    description: string;
+    description: string | string[]; // can be multi-paragraph
     technologies: string[];
 }
 
@@ -43,43 +43,50 @@ export default function LoadMoreExperiences({ experiences, loadMoreText, techSta
                 />
 
                 {displayedExperiences.map((exp, index) => (
-                    <article key={index} className="relative mb-10 pl-8" role="listitem">
+                    <article key={index} className="relative mb-8 pl-8" role="listitem">
                         {/* Timeline Dot */}
                         <div className="absolute left-0 top-3.5 flex size-4 items-center justify-center rounded-full bg-foreground ring-4 ring-background shadow-sm" aria-hidden="true" />
 
                         {/* Job Title */}
-                        <h3 className="rounded-xl py-2 text-lg sm:text-xl font-bold tracking-tight mb-2 text-foreground">
+                        <h3 className="rounded-xl py-1.5 text-lg sm:text-xl font-bold tracking-tight mb-1.5 text-foreground">
                             {exp.title}
                         </h3>
 
                         {/* Period */}
-                        <time className="text-sm sm:text-md text-muted-foreground rounded-xl tracking-tight mb-2 font-medium block">
+                        <time className="text-sm sm:text-md text-muted-foreground rounded-xl tracking-tight mb-1.5 font-medium block">
                             {exp.period}
                         </time>
 
                         {/* Company */}
-                        <address className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4 text-sm text-muted-foreground not-italic">
+                        <address className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-3 text-sm text-muted-foreground not-italic">
                             <div className="flex items-center gap-2">
                                 <span className="font-medium">{exp.company}</span>
                             </div>
                         </address>
 
-                        {/* Experience Description */}
-                        <div className="my-4">
-                            <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                                {exp.description}
-                            </p>
+                        {/* Experience Description (supports multiple paragraphs separated by blank lines) */}
+                        <div className="my-3 space-y-3">
+                            {(() => {
+                                const paragraphs = Array.isArray(exp.description)
+                                    ? exp.description
+                                    : exp.description.split(/\n{2,}/).map(p => p.trim()).filter(Boolean);
+                                return paragraphs.map((p, i) => (
+                                    <p key={i} className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                                        {p}
+                                    </p>
+                                ));
+                            })()}
                         </div>
 
                         {/* Tech Stack */}
-                        <div className="mt-4">
-                            <div className="text-xs text-muted-foreground mb-3 font-medium tracking-wide uppercase">{techStackText}</div>
-                            <div className="flex flex-wrap gap-2" role="list" aria-label={`Technologies used at ${exp.company}`}>
+                        <div className="mt-3">
+                            <div className="text-xs text-muted-foreground mb-2.5 font-medium tracking-wide uppercase">{techStackText}</div>
+                            <div className="flex flex-wrap gap-1.5" role="list" aria-label={`Technologies used at ${exp.company}`}>
                                 {exp.technologies.map((tech: string, i: number) => (
                                     <span
                                         key={i}
                                         role="listitem"
-                                        className={`inline-block text-xs px-3 py-1.5 border rounded-full font-medium transition-colors ${getTechColor(tech)}`}
+                                        className={`inline-block text-xs px-2.5 py-1.5 border rounded-full font-medium transition-colors ${getTechColor(tech)}`}
                                     >
                                         {tech}
                                     </span>
@@ -92,7 +99,7 @@ export default function LoadMoreExperiences({ experiences, loadMoreText, techSta
 
             {/* Load More Button */}
             {hasMoreExperiences && (
-                <div className="flex justify-center mt-8">
+                <div className="flex justify-center mt-6">
                     <Button
                         onClick={handleLoadMore}
                         variant="outline"

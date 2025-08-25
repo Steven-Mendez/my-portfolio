@@ -3,19 +3,15 @@
  * Presentational banner showing identity (name, role), bio paragraphs, location,
  * contact links, curriculum download action, and avatar. Pure UI (no side effects).
  */
-import { MapPin, Download } from "lucide-react";
+import { MapPin, FileDown } from "lucide-react";
+import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import ContactLinks from "./contact-links";
+import TimeOffset from "./time-offset";
+import { Contact } from "@/types";
 
 // ----------------- Types -----------------
-/** Contact link metadata. */
-interface Contact {
-    icon: string;
-    href: string;
-    label: string;
-    external: boolean;
-}
 
 /** External data shape expected by HeroSection. */
 interface HeroSectionProps {
@@ -50,11 +46,11 @@ const Header = ({ name, title }: HeaderProps) => (
     <>
         <h1
             id="hero-name"
-            className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground tracking-tight leading-tight mb-3"
+            className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground tracking-tight leading-tight mb-2"
         >
             {name}
         </h1>
-        <h2 className="text-xl md:text-2xl font-semibold text-brand mb-5">
+        <h2 className="text-xl md:text-2xl font-semibold text-brand mb-4">
             {title}
         </h2>
     </>
@@ -64,7 +60,7 @@ const Header = ({ name, title }: HeaderProps) => (
 interface BioProps { bio: string[]; }
 /** Bio paragraphs list. */
 const Bio = ({ bio }: BioProps) => (
-    <div className="space-y-4 max-w-prose md:max-w-none">
+    <div className="space-y-3 max-w-prose md:max-w-none">
         {bio.map((paragraph, index) => (
             <p key={index} className="text-muted-foreground leading-relaxed text-base">
                 {paragraph}
@@ -81,27 +77,38 @@ interface MetaActionsProps {
 }
 /** Location, contacts and CV download CTA cluster. */
 const MetaActions = ({ location, contacts, cv }: MetaActionsProps) => (
-    <div className="mt-8 flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-4">
+    <div className="mt-6 flex flex-col items-start gap-3">
         <address className="flex items-center gap-2 text-muted-foreground text-sm not-italic">
             <MapPin className="w-4 h-4" aria-hidden="true" />
-            <span>{location}</span>
+            <span>
+                {location} <TimeOffset className="ml-1 text-xs" />
+            </span>
         </address>
-        <ContactLinks contacts={contacts} />
-        <Button
-            asChild
-            variant="brand"
-            size="sm"
-            className="shadow-md focus-visible:ring-ring/40"
-        >
-            <a
-                href={`/${cv.fileName}`}
-                download={cv.fileName}
-                aria-label={`Download ${cv.fileName}`}
-            >
-                <Download className="w-4 h-4" aria-hidden="true" />
-                {cv.downloadText}
-            </a>
-        </Button>
+        <TooltipProvider>
+            <div className="flex flex-row flex-wrap items-center gap-2 sm:gap-2.5">
+                <Tooltip>
+                    <TooltipTrigger asChild>
+                        <Button
+                            asChild
+                            variant="brand"
+                            size="icon"
+                            className="rounded-full shadow-md hover:scale-[1.05] active:scale-100 transition-transform focus-visible:ring-brand/50"
+                        >
+                            <a
+                                href={`/${cv.fileName}`}
+                                download={cv.fileName}
+                                aria-label={cv.downloadText || `Download ${cv.fileName}`}
+                            >
+                                <FileDown className="w-5 h-5" aria-hidden="true" />
+                                <span className="sr-only">{cv.downloadText}</span>
+                            </a>
+                        </Button>
+                    </TooltipTrigger>
+                    <TooltipContent side="top">{cv.downloadText}</TooltipContent>
+                </Tooltip>
+                <ContactLinks contacts={contacts} />
+            </div>
+        </TooltipProvider>
     </div>
 );
 
@@ -141,11 +148,11 @@ export default function HeroSection({ data, showAvatar = true }: HeroSectionProp
 
     return (
         <section
-            className="w-full py-6 sm:py-8 mb-6 sm:mb-8"
+            className="w-full"
             aria-labelledby="hero-name"
             aria-label={`${name} profile section`}
         >
-            <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-10 md:gap-12 items-center">
+            <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-7 md:gap-8 items-center">
                 <div className="min-w-0 max-w-3xl">
                     <Header name={name} title={title} />
                     {bio.length > 0 && <Bio bio={bio} />}
