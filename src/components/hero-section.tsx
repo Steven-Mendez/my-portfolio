@@ -118,13 +118,14 @@ interface AvatarBlockProps { name: string; initials: string; }
 const AvatarBlock = ({ name, initials }: AvatarBlockProps) => (
     <figure className="flex-shrink-0 self-center group">
         <Avatar
-            className="w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 xl:w-80 xl:h-80 ring-1 ring-border/20 dark:ring-border/40 transition-transform duration-300 ease-out group-hover:scale-[1.02] motion-reduce:transform-none"
+            /* Smaller base size for better mobile fit; scale up progressively; keep circular shape */
+            className="w-40 h-40 sm:w-48 sm:h-48 md:w-64 md:h-64 xl:w-72 xl:h-72 ring-1 ring-border/20 dark:ring-border/40 transition-transform duration-300 ease-out group-hover:scale-[1.02] motion-reduce:transform-none"
             style={{ backgroundColor: "var(--avatar-background)" }}
         >
             <AvatarImage
                 src="/image.png"
                 alt={`${name} portrait`}
-                className="w-full h-full object-cover rounded-2xl"
+                className="w-full h-full object-cover"
             />
             <AvatarFallback
                 className="text-3xl"
@@ -152,13 +153,18 @@ export default function HeroSection({ data, showAvatar = true }: HeroSectionProp
             aria-labelledby="hero-name"
             aria-label={`${name} profile section`}
         >
-            <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-7 md:gap-8 items-center">
-                <div className="min-w-0 max-w-3xl">
+            {/* Mobile-first: stack content and avatar; switch to grid on medium screens */}
+            <div className="flex flex-col-reverse md:grid md:grid-cols-[minmax(0,1fr)_auto] items-center md:items-center gap-8 md:gap-10">
+                <div className="w-full min-w-0 max-w-3xl px-1 sm:px-0">
                     <Header name={name} title={title} />
                     {bio.length > 0 && <Bio bio={bio} />}
                     <MetaActions location={location} contacts={contacts} cv={cv} />
                 </div>
-                {showAvatar && <AvatarBlock name={name} initials={initials} />}
+                {showAvatar && (
+                    <div className="mb-6 md:mb-0 md:pl-2">
+                        <AvatarBlock name={name} initials={initials} />
+                    </div>
+                )}
             </div>
         </section>
     );
