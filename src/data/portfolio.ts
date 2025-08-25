@@ -36,7 +36,9 @@ export const personalData = {
         }
     ],
     cv: {
-        fileName: "Steven_Mendez_CV.pdf",
+        // Provide both localized file names; mapping function will expose the right one as cv.fileName
+        fileNameEN: "Steven_Mendez_Resume.pdf",
+        fileNameES: "Steven_Mendez_CV.pdf",
         downloadText: "Download CV"
     }
 };
@@ -208,7 +210,9 @@ export function getPortfolioData(locale: string) {
 
     // CV download text internacionalizado
     const mappedCV = {
-        ...personalData.cv,
+        // Expose unified shape expected by components (fileName + downloadText)
+        fileName: locale === 'es' ? personalData.cv.fileNameES : personalData.cv.fileNameEN,
+        // Keep original download text localized
         downloadText: uiTexts.hero.downloadCV
     };
 
