@@ -1,4 +1,3 @@
-// src/data/portfolio.ts
 import { Experience, Project, Education } from '@/types'
 
 // Datos personales y de contacto
@@ -155,9 +154,19 @@ export const experiences: Experience[] = [
     }
 ]
 
-export const featuredProjects: Project[] = []
-
-export const pastProjects: Project[] = []
+export const projects: Project[] = [
+    {
+        title: "Personal Portfolio Website",
+        description: "Personal portfolio to showcase projects and experience. Responsive, bilingual (EN/ES), theme toggle and clean accessible UI. Deployed on Netlify.",
+        description_en: "Personal portfolio to showcase projects and experience. Responsive, bilingual (EN/ES), theme toggle and clean accessible UI. Deployed on Netlify.",
+        description_es: "Portafolio personal para mostrar proyectos y experiencia. Responsive, bilingüe (EN/ES), con cambio de tema y UI accesible limpia. Desplegado en Netlify.",
+        image: "/portofolio-preview.png",
+        status: "In Progress",
+        techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "shadcn/ui", "Netlify"],
+        codeUrl: "https://github.com/Steven-Mendez/my-portfolio",
+        liveUrl: "https://steven-mendez.netlify.app"
+    }
+]
 
 export const education: Education = {
     degree: "Bachelor of Science in Computer Engineering",
@@ -179,20 +188,10 @@ export function getPortfolioData(locale: string) {
         technologies: exp.techStack,
     }));
 
-    // Mapear proyectos para compatibilidad con componentes
-    const mappedFeaturedProjects = featuredProjects.map(project => ({
-        title: project.title,
-        description: locale === 'es' ? (project.description_es || project.description) : (project.description_en || project.description),
-        technologies: project.techStack,
-    }));
-
-    const mappedPastProjects = pastProjects.map(project => ({
-        title: project.title,
-        description: locale === 'es' ? (project.description_es || project.description) : (project.description_en || project.description),
-        technologies: project.techStack,
-        demoUrl: project.liveUrl,
-        githubUrl: project.codeUrl,
-        image: project.image,
+    // Mapear proyectos preservando la forma de Project (solo localizando description)
+    const mappedProjects: Project[] = projects.map(project => ({
+        ...project,
+        description: locale === 'es' ? (project.description_es || project.description) : (project.description_en || project.description)
     }));
 
     // Mapear contactos para usar labels internacionalizados
@@ -222,11 +221,10 @@ export function getPortfolioData(locale: string) {
         },
         sections: uiTexts.sections,
         experience: mappedExperiences,
-        projects: {
+        projects: { // mantenemos textos + lista tipada
             ...uiTexts.projects,
             ...uiTexts.experience,
-            featured: mappedFeaturedProjects,
-            past: mappedPastProjects
+            items: mappedProjects
         },
         education,
         footer: uiTexts.footer

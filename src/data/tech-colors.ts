@@ -43,7 +43,7 @@ export const TECH_COLORS: Record<string, string> = {
     'GCP': 'bg-indigo-50 dark:bg-indigo-950/30 text-indigo-700 dark:text-indigo-300 border-indigo-200 dark:border-indigo-800', // single-hue stand-in
     'Docker': 'bg-sky-50 dark:bg-sky-950/30 text-sky-700 dark:text-sky-300 border-sky-200 dark:border-sky-800',
     'Kubernetes': 'bg-indigo-50 dark:bg-indigo-950/30 text-indigo-700 dark:text-indigo-300 border-indigo-200 dark:border-indigo-800',
-    'Vercel': 'bg-neutral-900 dark:bg-neutral-100 text-neutral-100 dark:text-neutral-900 border-neutral-800 dark:border-neutral-300',
+    'Vercel': 'bg-neutral-900 dark:bg-neutral-100 text-neutral-100 dark:text-neutral-900 border-neutral-800 dark:border-neutral-300', // (ya no usado en proyectos actuales)
     'Netlify': 'bg-teal-50 dark:bg-teal-950/30 text-teal-700 dark:text-teal-300 border-teal-200 dark:border-teal-800',
 
     // ML / AI
@@ -84,4 +84,8 @@ export const TECH_COLORS: Record<string, string> = {
     'Crystal Reports': 'bg-cyan-50 dark:bg-cyan-950/30 text-cyan-700 dark:text-cyan-300 border-cyan-200 dark:border-cyan-800',
     'iTextSharp': 'bg-rose-50 dark:bg-rose-950/30 text-rose-700 dark:text-rose-300 border-rose-200 dark:border-rose-800',
     'T-SQL': 'bg-red-50 dark:bg-red-950/30 text-red-700 dark:text-red-300 border-red-200 dark:border-red-800',
+    // Portfolio specific additions
+    'Radix UI': 'bg-violet-50 dark:bg-violet-950/30 text-violet-700 dark:text-violet-300 border-violet-200 dark:border-violet-800',
+    'shadcn/ui': 'bg-neutral-50 dark:bg-neutral-900/40 text-neutral-700 dark:text-neutral-300 border-neutral-200 dark:border-neutral-700',
+    // 'Zustand' removido de techStack actual del portafolio
 };

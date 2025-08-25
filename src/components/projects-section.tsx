@@ -5,42 +5,26 @@ import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { getTechColor } from '@/lib/utils'
 import LoadMoreProjects from './load-more-projects'
+import { Project } from '@/types'
 
 interface ProjectsSectionProps {
     data: {
-        sections: {
-            projects: string;
-        };
+        sections: { projects: string }
         projects: {
-            loadMore: string;
-            emptyState: string;
-            featured: Array<{
-                title: string;
-                description: string;
-                technologies: string[];
-                demoUrl?: string;
-                githubUrl?: string;
-                image?: string;
-            }>;
-            past: Array<{
-                title: string;
-                description: string;
-                technologies: string[];
-                demoUrl?: string;
-                githubUrl?: string;
-                image?: string;
-            }>;
-            techStack: string;
-            liveDemo: string;
-            code: string;
-            comingSoon: string;
-        };
-    };
+            loadMore: string
+            emptyState: string
+            items: Project[]
+            techStack: string
+            liveDemo: string
+            code: string
+            comingSoon: string
+        }
+    }
 }
 
 export default function ProjectsSection({ data }: ProjectsSectionProps) {
     const { projects } = data;
-    const allProjects = [...projects.featured, ...projects.past];
+    const allProjects = projects.items;
 
     return (
         <section className="w-full" aria-labelledby="projects-heading">
