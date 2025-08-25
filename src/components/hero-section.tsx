@@ -6,7 +6,8 @@
 import { MapPin, FileDown } from "lucide-react";
 import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip";
 import { Button } from "@/components/ui/button";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+// Avatar now optimized via next/image
+import OptimizedAvatar from "./optimized-avatar";
 import ContactLinks from "./contact-links";
 import TimeOffset from "./time-offset";
 import { Contact } from "@/types";
@@ -112,31 +113,19 @@ const MetaActions = ({ location, contacts, cv }: MetaActionsProps) => (
     </div>
 );
 
-/** Props for AvatarBlock (name + derived initials). */
-interface AvatarBlockProps { name: string; initials: string; }
-/** Portrait avatar with fallback initials. */
-const AvatarBlock = ({ name, initials }: AvatarBlockProps) => (
+/** Avatar block now uses optimized component (LCP target). */
+const AvatarBlock = ({ name, initials }: { name: string; initials: string }) => (
     <figure className="flex-shrink-0 self-center group">
-        <Avatar
-            /* Smaller base size for better mobile fit; scale up progressively; keep circular shape */
-            className="w-40 h-40 sm:w-48 sm:h-48 md:w-64 md:h-64 xl:w-72 xl:h-72 ring-1 ring-border/20 dark:ring-border/40 transition-transform duration-300 ease-out group-hover:scale-[1.02] motion-reduce:transform-none"
-            style={{ backgroundColor: "var(--avatar-background)" }}
-        >
-            <AvatarImage
-                src="/image.png"
-                alt={`${name} portrait`}
-                className="w-full h-full object-cover"
-            />
-            <AvatarFallback
-                className="text-3xl"
-                style={{
-                    backgroundColor: "var(--avatar-background)",
-                    color: "var(--foreground)",
-                }}
-            >
-                {initials}
-            </AvatarFallback>
-        </Avatar>
+        <OptimizedAvatar
+            name={name}
+            alt={`${name} portrait`}
+            fallback={initials}
+            // responsive sizes aligned with previous Tailwind widths
+            sizes="(min-width:1536px) 288px, (min-width:1280px) 288px, (min-width:1024px) 256px, (min-width:768px) 192px, 160px"
+            // size prop corresponds to largest target (288)
+            size={288}
+            className="transition-transform duration-300 ease-out group-hover:scale-[1.02] motion-reduce:transform-none w-40 h-40 sm:w-48 sm:h-48 md:w-64 md:h-64 xl:w-72 xl:h-72"
+        />
         <figcaption className="sr-only">{name}</figcaption>
     </figure>
 );

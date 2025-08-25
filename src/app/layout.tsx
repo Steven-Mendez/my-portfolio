@@ -95,7 +95,7 @@ export default function RootLayout({
                 <link rel="dns-prefetch" href="https://linkedin.com" />
 
                 {/* Preload critical resources */}
-                <link rel="preload" href="/image.png" as="image" type="image/png" />
+                {/** Removed explicit preload of hero image; using next/image with priority now */}
 
                 <script
                     type="application/ld+json"
