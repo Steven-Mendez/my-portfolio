@@ -149,6 +149,7 @@ export default function HeroSection({ data, showAvatar = true }: HeroSectionProp
 
     return (
         <section
+            id="hero"
             className="w-full"
             aria-labelledby="hero-name"
             aria-label={`${name} profile section`}

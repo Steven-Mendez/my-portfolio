@@ -10,7 +10,7 @@ export default function Footer({ locale, footer }: FooterProps) {
     const needsSeparator = !/[.!?]\s*$/.test(footer.copyright.trim());
     const separator = needsSeparator ? '. ' : ' ';
     return (
-        <footer className="w-full bg-background transition-colors">
+        <footer id="footer" className="w-full bg-background transition-colors">
             <Separator className="my-2" />
             <div className="flex flex-col items-center space-y-3 py-2">
                 <FooterLinks />

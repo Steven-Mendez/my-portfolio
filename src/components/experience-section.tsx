@@ -25,7 +25,7 @@ export default function ExperienceSection({ data }: ExperienceSectionProps) {
     const { experience } = data;
 
     return (
-        <section className="w-full" aria-labelledby="experience-heading">
+        <section id="experience" className="w-full" aria-labelledby="experience-heading">
             <header className="flex items-center gap-3 mb-2">
                 <Briefcase className="w-6 h-6 sm:w-7 sm:h-7 text-foreground/80" aria-hidden="true" />
                 <h2 id="experience-heading" className="text-xl sm:text-2xl font-semibold text-foreground">

@@ -2,7 +2,7 @@ import HeroSection from '@/components/hero-section'
 import ProjectsSection from '@/components/projects-section'
 import ExperienceSection from '@/components/experience-section'
 import Footer from '@/components/footer'
-import FloatingControls from '@/components/floating-controls'
+import Sidebar from '@/components/sidebar'
 import { getPortfolioData } from '@/data/portfolio'
 
 // Generate static params for static export
@@ -29,7 +29,7 @@ export default async function HomePage({ params }: PageProps) {
         <ExperienceSection data={data} />
         <Footer locale={locale} footer={data.footer} />
       </main>
-      <FloatingControls />
+      <Sidebar locale={locale} />
     </div>
   )
 } 

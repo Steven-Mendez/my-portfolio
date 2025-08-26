@@ -24,7 +24,7 @@ export default function ProjectsSection({ data }: ProjectsSectionProps) {
     const allProjects = projects.items;
 
     return (
-        <section className="w-full" aria-labelledby="projects-heading">
+        <section id="projects" className="w-full" aria-labelledby="projects-heading">
             <header className="flex items-center gap-3 mb-2">
                 <Code2 className="w-6 h-6 sm:w-7 sm:h-7 text-foreground/80" aria-hidden="true" />
                 <h2 id="projects-heading" className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-gray-100">

@@ -46,6 +46,12 @@ export const personalData = {
 
 // Textos de UI en inglés
 export const uiTextsEN = {
+    navigation: {
+        title: "Navigation",
+        home: "Home",
+        projects: "Projects",
+        experience: "Experience"
+    },
     sections: {
         projects: "Projects",
         experience: "Experience"
@@ -79,11 +85,23 @@ export const uiTextsEN = {
     footer: {
         copyright: "© 2025 Steven Mendez",
         rights: "All rights reserved."
+    },
+    configuration: {
+        title: "Configuration",
+        light: "Light Mode",
+        dark: "Dark Mode",
+        language: "Español"
     }
 };
 
 // Textos de UI en español
 export const uiTextsES = {
+    navigation: {
+        title: "Navegación",
+        home: "Inicio",
+        projects: "Proyectos",
+        experience: "Experiencia"
+    },
     sections: {
         projects: "Proyectos",
         experience: "Experiencia"
@@ -117,6 +135,12 @@ export const uiTextsES = {
     footer: {
         copyright: "© 2025 Steven Mendez",
         rights: "Todos los derechos reservados."
+    },
+    configuration: {
+        title: "Configuración",
+        light: "Modo Claro",
+        dark: "Modo Oscuro",
+        language: "English"
     }
 };
 
