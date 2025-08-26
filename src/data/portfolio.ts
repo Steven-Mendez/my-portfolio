@@ -7,8 +7,8 @@ export const personalData = {
     title_es: "Desarrollador de Software",
     location: "Managua, Nicaragua",
     bio: [
-        "Soy Desarrollador de Software con 2.5 años de experiencia en Backend e Inteligencia Artificial. Especializado en C#, .NET y Python, con experiencia en APIs RESTful e integración con plataformas de IA.",
-        "Me apasiona crear soluciones escalables y eficientes, automatizando procesos críticos y construyendo sistemas robustos que resuelven problemas del mundo real."
+        "Soy un desarrollador de software con más de 2 años de experiencia en desarrollo backend e inteligencia artificial. Me especializo en C#, .NET y Python, con amplia experiencia en APIs RESTful e integración con plataformas de IA.",
+        "Me apasiona crear soluciones escalables y eficientes, automatizando procesos críticos y construyendo sistemas robustos que resuelven problemas reales del mundo."
     ],
     contacts: [
         {
@@ -53,7 +53,7 @@ export const uiTextsEN = {
     projects: {
         loadMore: "Load More",
         showLess: "Show Less",
-        emptyState: "I'm currently building new things. Check back soon to explore fresh work.",
+        emptyState: "I'm currently working on exciting new projects. Check back soon to see what I've been building!",
         techStack: "Tech Stack",
         liveDemo: "Live Demo",
         code: "Code",
@@ -66,8 +66,8 @@ export const uiTextsEN = {
     hero: {
         downloadCV: "Download CV",
         bio: [
-            "I am a Software Developer with 2.5 years of experience specializing in Backend and Artificial Intelligence. Skilled in C#, .NET, and Python, with expertise in RESTful APIs and AI platform integration.",
-            "I am passionate about creating scalable and efficient solutions, automating critical processes, and building robust systems that solve real-world problems."
+            "I'm a Software Developer with over 2 years of experience specializing in Backend Development and Artificial Intelligence. I'm skilled in C#, .NET, and Python, with expertise in building RESTful APIs and integrating AI platforms.",
+            "I'm passionate about creating scalable and efficient solutions, automating critical processes, and building robust systems that solve real-world problems."
         ],
         contacts: {
             email: "Email",
@@ -91,7 +91,7 @@ export const uiTextsES = {
     projects: {
         loadMore: "Cargar Más",
         showLess: "Mostrar Menos",
-        emptyState: "Actualmente estoy construyendo nuevos proyectos. Vuelve pronto para ver más.",
+        emptyState: "Actualmente estoy trabajando en proyectos emocionantes. ¡Vuelve pronto para ver lo que he estado construyendo!",
         techStack: "Tecnologías",
         liveDemo: "Demo en Vivo",
         code: "Código",
@@ -104,8 +104,8 @@ export const uiTextsES = {
     hero: {
         downloadCV: "Descargar CV",
         bio: [
-            "Soy Desarrollador de Software con 2.5 años de experiencia en Backend e Inteligencia Artificial. Especializado en C#, .NET y Python, con experiencia en APIs RESTful e integración con plataformas de IA.",
-            "Me apasiona crear soluciones escalables y eficientes, automatizando procesos críticos y construyendo sistemas robustos que resuelven problemas del mundo real."
+            "Soy un desarrollador de software con más de 2 años de experiencia especializado en desarrollo backend e inteligencia artificial. Me destaco en C#, .NET y Python, con amplia experiencia en APIs RESTful e integración con plataformas de IA.",
+            "Me apasiona crear soluciones escalables y eficientes, automatizando procesos críticos y construyendo sistemas robustos que resuelven problemas reales del mundo."
         ],
         contacts: {
             email: "Correo",
@@ -130,9 +130,9 @@ export const experiences: Experience[] = [
         duration_en: "2025 – Present",
         duration_es: "2025 – Presente",
         location: "Remote",
-        description: "Built Django APIs for Aristide, the first AI Copilot for VTP, integrating OpenAI, Anthropic, Claude, Gemini, and DeepSeek.\n\nDesigned features enabling tutors to create reasoning flowcharts to analyze questions, detect misconceptions, and define key objectives.\n\nDeveloped a no-code flowchart builder in React/TypeScript (React Flow) for auditing reasoning flows.\n\nCreated Telegram bots based on Aristide for USMLE, MCAT, and System Design interview practice.\n\nImplemented CI/CD pipelines with GitHub Actions, removing manual deployments and enabling the whole team to deploy via push.\n\nIntegrated Stripe into Telegram bots to manage recurring subscriptions via Webhooks.",
-        description_en: "Built Django APIs for Aristide, the first AI Copilot for VTP, integrating OpenAI, Anthropic, Claude, Gemini, and DeepSeek.\n\nDesigned features enabling tutors to create reasoning flowcharts to analyze questions, detect misconceptions, and define key objectives.\n\nDeveloped a no-code flowchart builder in React/TypeScript (React Flow) for auditing reasoning flows.\n\nCreated Telegram bots based on Aristide for USMLE, MCAT, and System Design interview practice.\n\nImplemented CI/CD pipelines with GitHub Actions, removing manual deployments and enabling the whole team to deploy via push.\n\nIntegrated Stripe into Telegram bots to manage recurring subscriptions via Webhooks.",
-        description_es: "Implementé APIs en Django para Aristide, el primer AI Copilot de la VTP, integrando OpenAI, Anthropic, Claude, Gemini y DeepSeek.\n\nDiseñé la funcionalidad que permite a tutores crear diagramas de flujo de razonamiento para analizar preguntas, detectar misconceptions y definir objetivos clave.\n\nDesarrollé un builder no-code de flowcharts en React/TypeScript (React Flow) para crear y auditar flujos de razonamiento.\n\nCreé bots en Telegram basados en Aristide para USMLE, MCAT y entrevistas de System Design.\n\nImplementé pipelines de CI/CD con GitHub Actions, eliminando despliegues manuales y permitiendo que todo el equipo pueda desplegar con un simple push.\n\nIntegré Stripe en bots de Telegram para gestionar suscripciones recurrentes mediante Webhooks.",
+        description: "Developed Django APIs for Aristide, the first AI Copilot for VTP, integrating multiple AI platforms including OpenAI, Anthropic, Claude, Gemini, and DeepSeek.\n\nDesigned and implemented features that enable tutors to create reasoning flowcharts for analyzing questions, detecting misconceptions, and defining key learning objectives.\n\nBuilt a no-code flowchart builder using React/TypeScript and React Flow for creating and auditing reasoning flows.\n\nCreated Telegram bots powered by Aristide for USMLE, MCAT, and System Design interview practice.\n\nImplemented CI/CD pipelines with GitHub Actions, eliminating manual deployments and enabling the entire team to deploy with a simple push.\n\nIntegrated Stripe into Telegram bots to handle recurring subscriptions through webhooks.",
+        description_en: "Developed Django APIs for Aristide, the first AI Copilot for VTP, integrating multiple AI platforms including OpenAI, Anthropic, Claude, Gemini, and DeepSeek.\n\nDesigned and implemented features that enable tutors to create reasoning flowcharts for analyzing questions, detecting misconceptions, and defining key learning objectives.\n\nBuilt a no-code flowchart builder using React/TypeScript and React Flow for creating and auditing reasoning flows.\n\nCreated Telegram bots powered by Aristide for USMLE, MCAT, and System Design interview practice.\n\nImplemented CI/CD pipelines with GitHub Actions, eliminating manual deployments and enabling the entire team to deploy with a simple push.\n\nIntegrated Stripe into Telegram bots to handle recurring subscriptions through webhooks.",
+        description_es: "Desarrollé APIs en Django para Aristide, el primer AI Copilot de la VTP, integrando múltiples plataformas de IA incluyendo OpenAI, Anthropic, Claude, Gemini y DeepSeek.\n\nDiseñé e implementé funcionalidades que permiten a los tutores crear diagramas de flujo de razonamiento para analizar preguntas, detectar conceptos erróneos y definir objetivos de aprendizaje clave.\n\nConstruí un creador de diagramas de flujo sin código usando React/TypeScript y React Flow para crear y auditar flujos de razonamiento.\n\nCreé bots de Telegram impulsados por Aristide para práctica de entrevistas de USMLE, MCAT y System Design.\n\nImplementé pipelines de CI/CD con GitHub Actions, eliminando despliegues manuales y permitiendo que todo el equipo pueda desplegar con un simple push.\n\nIntegré Stripe en los bots de Telegram para manejar suscripciones recurrentes a través de webhooks.",
         techStack: ["Python", "Django", "REST API", "WebSockets", "OpenAI", "Anthropic", "Claude", "Gemini", "DeepSeek", "React", "TypeScript", "React Flow", "Telegram Bots", "GitHub Actions", "Stripe", "Webhooks"]
     },
     {
@@ -144,9 +144,9 @@ export const experiences: Experience[] = [
         duration_en: "2024 – 2025",
         duration_es: "2024 – 2025",
         location: "Remote",
-        description: "Developed C# .NET RESTful APIs for HR and Orders systems, including CRUD, validations, security, and authentication.\n\nImplemented HR modules: Attendance, Payroll, Scheduling, and Loans, applying business rules for accurate calculations.\n\nBuilt the Orders system with detail processing, logistics, and automated bank reconciliation.",
-        description_en: "Developed C# .NET RESTful APIs for HR and Orders systems, including CRUD, validations, security, and authentication.\n\nImplemented HR modules: Attendance, Payroll, Scheduling, and Loans, applying business rules for accurate calculations.\n\nBuilt the Orders system with detail processing, logistics, and automated bank reconciliation.",
-        description_es: "Desarrollé APIs RESTful en C# .NET para sistemas de RRHH y Pedidos, incluyendo CRUD, validaciones, seguridad y autenticación.\n\nImplementé módulos de RRHH: Asistencia, Horarios, Nómina y Préstamos, aplicando reglas de negocio para cálculos precisos.\n\nCreé el sistema de Pedidos con procesamiento de detalle, logística y conciliación bancaria automatizada.",
+        description: "Developed C# .NET RESTful APIs for comprehensive HR and Orders management systems, including full CRUD operations, data validation, security measures, and authentication.\n\nImplemented key HR modules covering Attendance tracking, Payroll processing, Scheduling management, and Loans administration, applying business logic for accurate calculations.\n\nBuilt a robust Orders system with detailed processing capabilities, logistics management, and automated bank reconciliation features.",
+        description_en: "Developed C# .NET RESTful APIs for comprehensive HR and Orders management systems, including full CRUD operations, data validation, security measures, and authentication.\n\nImplemented key HR modules covering Attendance tracking, Payroll processing, Scheduling management, and Loans administration, applying business logic for accurate calculations.\n\nBuilt a robust Orders system with detailed processing capabilities, logistics management, and automated bank reconciliation features.",
+        description_es: "Desarrollé APIs RESTful en C# .NET para sistemas integrales de gestión de RRHH y Pedidos, incluyendo operaciones CRUD completas, validación de datos, medidas de seguridad y autenticación.\n\nImplementé módulos clave de RRHH que cubren seguimiento de asistencia, procesamiento de nómina, gestión de horarios y administración de préstamos, aplicando lógica de negocio para cálculos precisos.\n\nConstruí un sistema robusto de Pedidos con capacidades de procesamiento detallado, gestión logística y funciones automatizadas de conciliación bancaria.",
         techStack: ["C#", ".NET", "Entity Framework", "SQL Server", "REST API"]
     },
     {
@@ -158,9 +158,9 @@ export const experiences: Experience[] = [
         duration_en: "2023 – 2024",
         duration_es: "2023 – 2024",
         location: "Nicaragua",
-        description: "Developed C# .NET 6 RESTful APIs with Clean Architecture and GitLab CI/CD.\n\nMaintained and improved the Budget and Planning system in .NET Framework 4.7 and WebForms.\n\nMigrated 17 reports from Crystal Reports to iTextSharp, reducing report generation times from ~10 min to <30 s (90% efficiency).\n\nOptimized complex T-SQL procedures, cutting execution time from ~10 min to <10 s.\n\nMentored 4 interns in C#, SQL, and Entity Framework, boosting productivity and best practices.",
-        description_en: "Developed C# .NET 6 RESTful APIs with Clean Architecture and GitLab CI/CD.\n\nMaintained and improved the Budget and Planning system in .NET Framework 4.7 and WebForms.\n\nMigrated 17 reports from Crystal Reports to iTextSharp, reducing report generation times from ~10 min to <30 s (90% efficiency).\n\nOptimized complex T-SQL procedures, cutting execution time from ~10 min to <10 s.\n\nMentored 4 interns in C#, SQL, and Entity Framework, boosting productivity and best practices.",
-        description_es: "Desarrollé APIs RESTful en C# .NET 6 con Clean Architecture y GitLab CI/CD.\n\nMantuve y mejoré el sistema de Planificación y Presupuesto en .NET Framework 4.7 y WebForms.\n\nMigré 17 reportes de Crystal Reports a iTextSharp, reduciendo tiempos de generación de ~10 min a <30 s (90 % de eficiencia).\n\nOptimicé procedimientos T-SQL complejos, reduciendo consultas de ~10 min a <10 s.\n\nMentor de 4 pasantes en C#, SQL y Entity Framework, mejorando su productividad y buenas prácticas.",
+        description: "Developed C# .NET 6 RESTful APIs following Clean Architecture principles and implemented GitLab CI/CD pipelines.\n\nMaintained and enhanced the Budget and Planning system built on .NET Framework 4.7 and WebForms.\n\nSuccessfully migrated 17 reports from Crystal Reports to iTextSharp, achieving a 90% efficiency improvement by reducing report generation time from approximately 10 minutes to under 30 seconds.\n\nOptimized complex T-SQL stored procedures, dramatically reducing execution time from around 10 minutes to under 10 seconds.\n\nMentored 4 interns in C#, SQL, and Entity Framework, significantly improving their productivity and instilling best practices.",
+        description_en: "Developed C# .NET 6 RESTful APIs following Clean Architecture principles and implemented GitLab CI/CD pipelines.\n\nMaintained and enhanced the Budget and Planning system built on .NET Framework 4.7 and WebForms.\n\nSuccessfully migrated 17 reports from Crystal Reports to iTextSharp, achieving a 90% efficiency improvement by reducing report generation time from approximately 10 minutes to under 30 seconds.\n\nOptimized complex T-SQL stored procedures, dramatically reducing execution time from around 10 minutes to under 10 seconds.\n\nMentored 4 interns in C#, SQL, and Entity Framework, significantly improving their productivity and instilling best practices.",
+        description_es: "Desarrollé APIs RESTful en C# .NET 6 siguiendo principios de Clean Architecture e implementé pipelines de GitLab CI/CD.\n\nMantuve y mejoré el sistema de Planificación y Presupuesto construido en .NET Framework 4.7 y WebForms.\n\nMigré exitosamente 17 reportes de Crystal Reports a iTextSharp, logrando una mejora del 90% en eficiencia al reducir el tiempo de generación de reportes de aproximadamente 10 minutos a menos de 30 segundos.\n\nOptimicé procedimientos almacenados T-SQL complejos, reduciendo dramáticamente el tiempo de ejecución de alrededor de 10 minutos a menos de 10 segundos.\n\nFui mentor de 4 pasantes en C#, SQL y Entity Framework, mejorando significativamente su productividad e inculcando buenas prácticas.",
         techStack: ["C#", ".NET 6", "Clean Architecture", "GitLab CI", "Entity Framework", "SQL Server", "WebForms", "Crystal Reports", "iTextSharp", "T-SQL"]
     }
 ]
@@ -171,8 +171,8 @@ export const projects: Project[] = [
         title_en: "My Portfolio",
         title_es: "Mi Portfolio",
         description: "Personal portfolio to showcase projects and experience. Responsive, bilingual (EN/ES), theme toggle and clean accessible UI. Deployed on Netlify.",
-        description_en: "This portfolio demonstrates my modern frontend development skills using Next.js 15, React 18, and TypeScript. Features include server-side rendering, internationalization (EN/ES), dark/light theme toggle, responsive design, and accessibility best practices. Built with modern tooling including Tailwind CSS, shadcn/ui components, and deployed on Netlify with static generation.",
-        description_es: "Este portafolio demuestra mis habilidades de desarrollo frontend moderno usando Next.js 15, React 18 y TypeScript. Características incluyen renderizado del lado del servidor, internacionalización (EN/ES), cambio de tema claro/oscuro, diseño responsive y mejores prácticas de accesibilidad. Construido con herramientas modernas incluyendo Tailwind CSS, componentes shadcn/ui y desplegado en Netlify con generación estática.",
+        description_en: "This portfolio showcases my modern frontend development skills using Next.js 15, React 18, and TypeScript. It features server-side rendering, internationalization (EN/ES), dark/light theme toggle, responsive design, and accessibility best practices. Built with modern tooling including Tailwind CSS and shadcn/ui components, and deployed on Netlify with static generation for optimal performance.",
+        description_es: "Este portafolio demuestra mis habilidades de desarrollo frontend moderno usando Next.js 15, React 18 y TypeScript. Incluye renderizado del lado del servidor, internacionalización (EN/ES), cambio de tema claro/oscuro, diseño responsive y mejores prácticas de accesibilidad. Construido con herramientas modernas incluyendo Tailwind CSS y componentes shadcn/ui, y desplegado en Netlify con generación estática para un rendimiento óptimo.",
         image: "/portofolio-preview.png",
         status: "In Progress",
         techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "shadcn/ui", "Netlify"],
