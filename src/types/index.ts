@@ -1,6 +1,8 @@
 // src/types/index.ts
 export interface Project {
     title: string
+    title_en?: string
+    title_es?: string
     description: string
     description_en?: string
     description_es?: string
@@ -17,6 +19,8 @@ export interface Experience {
     title_es?: string
     company: string
     duration: string
+    duration_en?: string
+    duration_es?: string
     location: string
     description: string
     description_en?: string

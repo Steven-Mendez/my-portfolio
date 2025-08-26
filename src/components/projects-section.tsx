@@ -1,9 +1,5 @@
-import Image from 'next/image'
-import { ExternalLink, Github, FolderOpen, Code2 } from 'lucide-react'
-import { Card, CardDescription } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
+import { FolderOpen, Code2 } from 'lucide-react'
 import { Separator } from '@/components/ui/separator'
-import { getTechColor } from '@/lib/utils'
 import LoadMoreProjects from './load-more-projects'
 import { Project } from '@/types'
 
@@ -18,6 +14,7 @@ interface ProjectsSectionProps {
             liveDemo: string
             code: string
             comingSoon: string
+            aboutProject: string
         }
     }
 }
@@ -48,6 +45,7 @@ export default function ProjectsSection({ data }: ProjectsSectionProps) {
                     techStackText={data.projects.techStack}
                     liveDemoText={data.projects.liveDemo}
                     codeText={data.projects.code}
+                    aboutProjectText={data.projects.aboutProject}
                 />
             )}
         </section>

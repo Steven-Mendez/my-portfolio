@@ -3,12 +3,12 @@ import { Experience, Project, Education } from '@/types'
 // Datos personales y de contacto
 export const personalData = {
     name: "Steven Mendez",
-    title: "Backend Developer",
+    title: "Software Developer",
+    title_es: "Desarrollador de Software",
     location: "Managua, Nicaragua",
     bio: [
-        "Soy Desarrollador de Software con 2.5 años de experiencia en Backend e Inteligencia Artificial. Especializado en C#, .NET y Python, con experiencia en diseño de APIs RESTful e integración con plataformas de IA (OpenAI, Anthropic, Claude, Gemini).",
-        "Me apasiona crear soluciones escalables y eficientes, automatizar procesos críticos e implementar CI/CD para asegurar entregas continuas.",
-        "Mi enfoque combina lo técnico con lo estratégico: no solo desarrollo sistemas robustos, sino que también impacto directamente en la productividad de equipos y en la experiencia de usuarios finales."
+        "Soy Desarrollador de Software con 2.5 años de experiencia en Backend e Inteligencia Artificial. Especializado en C#, .NET y Python, con experiencia en APIs RESTful e integración con plataformas de IA.",
+        "Me apasiona crear soluciones escalables y eficientes, automatizando procesos críticos y construyendo sistemas robustos que resuelven problemas del mundo real."
     ],
     contacts: [
         {
@@ -57,7 +57,8 @@ export const uiTextsEN = {
         techStack: "Tech Stack",
         liveDemo: "Live Demo",
         code: "Code",
-        comingSoon: "Coming soon"
+        comingSoon: "Coming soon",
+        aboutProject: "About this project"
     },
     experience: {
         techStack: "Tech Stack"
@@ -65,9 +66,8 @@ export const uiTextsEN = {
     hero: {
         downloadCV: "Download CV",
         bio: [
-            "I am a Software Developer with 2.5 years of experience specializing in Backend and Artificial Intelligence. Skilled in C#, .NET, and Python, with strong expertise in designing RESTful APIs and integrating with AI platforms (OpenAI, Anthropic, Claude, Gemini).",
-            "I focus on building scalable and efficient solutions, automating critical processes, and implementing CI/CD pipelines to ensure continuous delivery.",
-            "My approach blends technical depth with business impact, improving both system performance and user experience."
+            "I am a Software Developer with 2.5 years of experience specializing in Backend and Artificial Intelligence. Skilled in C#, .NET, and Python, with expertise in RESTful APIs and AI platform integration.",
+            "I am passionate about creating scalable and efficient solutions, automating critical processes, and building robust systems that solve real-world problems."
         ],
         contacts: {
             email: "Email",
@@ -95,7 +95,8 @@ export const uiTextsES = {
         techStack: "Tecnologías",
         liveDemo: "Demo en Vivo",
         code: "Código",
-        comingSoon: "Próximamente"
+        comingSoon: "Próximamente",
+        aboutProject: "Acerca de este proyecto"
     },
     experience: {
         techStack: "Tecnologías"
@@ -103,9 +104,8 @@ export const uiTextsES = {
     hero: {
         downloadCV: "Descargar CV",
         bio: [
-            "Soy Desarrollador de Software con 2.5 años de experiencia en Backend e Inteligencia Artificial. Especializado en C#, .NET y Python, con experiencia en diseño de APIs RESTful e integración con plataformas de IA (OpenAI, Anthropic, Claude, Gemini).",
-            "Me apasiona crear soluciones escalables y eficientes, automatizar procesos críticos e implementar CI/CD para asegurar entregas continuas.",
-            "Mi enfoque combina lo técnico con lo estratégico: no solo desarrollo sistemas robustos, sino que también impacto directamente en la productividad de equipos y en la experiencia de usuarios finales."
+            "Soy Desarrollador de Software con 2.5 años de experiencia en Backend e Inteligencia Artificial. Especializado en C#, .NET y Python, con experiencia en APIs RESTful e integración con plataformas de IA.",
+            "Me apasiona crear soluciones escalables y eficientes, automatizando procesos críticos y construyendo sistemas robustos que resuelven problemas del mundo real."
         ],
         contacts: {
             email: "Correo",
@@ -127,6 +127,8 @@ export const experiences: Experience[] = [
         title_es: "Desarrollador Python",
         company: "MILRD",
         duration: "2025 – Present",
+        duration_en: "2025 – Present",
+        duration_es: "2025 – Presente",
         location: "Remote",
         description: "Built Django APIs for Aristide, the first AI Copilot for VTP, integrating OpenAI, Anthropic, Claude, Gemini, and DeepSeek.\n\nDesigned features enabling tutors to create reasoning flowcharts to analyze questions, detect misconceptions, and define key objectives.\n\nDeveloped a no-code flowchart builder in React/TypeScript (React Flow) for auditing reasoning flows.\n\nCreated Telegram bots based on Aristide for USMLE, MCAT, and System Design interview practice.\n\nImplemented CI/CD pipelines with GitHub Actions, removing manual deployments and enabling the whole team to deploy via push.\n\nIntegrated Stripe into Telegram bots to manage recurring subscriptions via Webhooks.",
         description_en: "Built Django APIs for Aristide, the first AI Copilot for VTP, integrating OpenAI, Anthropic, Claude, Gemini, and DeepSeek.\n\nDesigned features enabling tutors to create reasoning flowcharts to analyze questions, detect misconceptions, and define key objectives.\n\nDeveloped a no-code flowchart builder in React/TypeScript (React Flow) for auditing reasoning flows.\n\nCreated Telegram bots based on Aristide for USMLE, MCAT, and System Design interview practice.\n\nImplemented CI/CD pipelines with GitHub Actions, removing manual deployments and enabling the whole team to deploy via push.\n\nIntegrated Stripe into Telegram bots to manage recurring subscriptions via Webhooks.",
@@ -139,6 +141,8 @@ export const experiences: Experience[] = [
         title_es: "Desarrollador Backend",
         company: "Freelance – Joyas Esther",
         duration: "2024 – 2025",
+        duration_en: "2024 – 2025",
+        duration_es: "2024 – 2025",
         location: "Remote",
         description: "Developed C# .NET RESTful APIs for HR and Orders systems, including CRUD, validations, security, and authentication.\n\nImplemented HR modules: Attendance, Payroll, Scheduling, and Loans, applying business rules for accurate calculations.\n\nBuilt the Orders system with detail processing, logistics, and automated bank reconciliation.",
         description_en: "Developed C# .NET RESTful APIs for HR and Orders systems, including CRUD, validations, security, and authentication.\n\nImplemented HR modules: Attendance, Payroll, Scheduling, and Loans, applying business rules for accurate calculations.\n\nBuilt the Orders system with detail processing, logistics, and automated bank reconciliation.",
@@ -151,6 +155,8 @@ export const experiences: Experience[] = [
         title_es: "Analista de Sistemas",
         company: "National University of Engineering",
         duration: "2023 – 2024",
+        duration_en: "2023 – 2024",
+        duration_es: "2023 – 2024",
         location: "Nicaragua",
         description: "Developed C# .NET 6 RESTful APIs with Clean Architecture and GitLab CI/CD.\n\nMaintained and improved the Budget and Planning system in .NET Framework 4.7 and WebForms.\n\nMigrated 17 reports from Crystal Reports to iTextSharp, reducing report generation times from ~10 min to <30 s (90% efficiency).\n\nOptimized complex T-SQL procedures, cutting execution time from ~10 min to <10 s.\n\nMentored 4 interns in C#, SQL, and Entity Framework, boosting productivity and best practices.",
         description_en: "Developed C# .NET 6 RESTful APIs with Clean Architecture and GitLab CI/CD.\n\nMaintained and improved the Budget and Planning system in .NET Framework 4.7 and WebForms.\n\nMigrated 17 reports from Crystal Reports to iTextSharp, reducing report generation times from ~10 min to <30 s (90% efficiency).\n\nOptimized complex T-SQL procedures, cutting execution time from ~10 min to <10 s.\n\nMentored 4 interns in C#, SQL, and Entity Framework, boosting productivity and best practices.",
@@ -162,9 +168,11 @@ export const experiences: Experience[] = [
 export const projects: Project[] = [
     {
         title: "Personal Portfolio Website",
+        title_en: "My Portfolio",
+        title_es: "Mi Portfolio",
         description: "Personal portfolio to showcase projects and experience. Responsive, bilingual (EN/ES), theme toggle and clean accessible UI. Deployed on Netlify.",
-        description_en: "Personal portfolio to showcase projects and experience. Responsive, bilingual (EN/ES), theme toggle and clean accessible UI. Deployed on Netlify.",
-        description_es: "Portafolio personal para mostrar proyectos y experiencia. Responsive, bilingüe (EN/ES), con cambio de tema y UI accesible limpia. Desplegado en Netlify.",
+        description_en: "This portfolio demonstrates my modern frontend development skills using Next.js 15, React 18, and TypeScript. Features include server-side rendering, internationalization (EN/ES), dark/light theme toggle, responsive design, and accessibility best practices. Built with modern tooling including Tailwind CSS, shadcn/ui components, and deployed on Netlify with static generation.",
+        description_es: "Este portafolio demuestra mis habilidades de desarrollo frontend moderno usando Next.js 15, React 18 y TypeScript. Características incluyen renderizado del lado del servidor, internacionalización (EN/ES), cambio de tema claro/oscuro, diseño responsive y mejores prácticas de accesibilidad. Construido con herramientas modernas incluyendo Tailwind CSS, componentes shadcn/ui y desplegado en Netlify con generación estática.",
         image: "/portofolio-preview.png",
         status: "In Progress",
         techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "shadcn/ui", "Netlify"],
@@ -188,14 +196,15 @@ export function getPortfolioData(locale: string) {
     const mappedExperiences = experiences.map(exp => ({
         title: locale === 'es' ? (exp.title_es || exp.title) : (exp.title_en || exp.title),
         company: exp.company,
-        period: exp.duration,
+        period: locale === 'es' ? (exp.duration_es || exp.duration) : (exp.duration_en || exp.duration),
         description: locale === 'es' ? (exp.description_es || exp.description) : (exp.description_en || exp.description),
         technologies: exp.techStack,
     }));
 
-    // Mapear proyectos preservando la forma de Project (solo localizando description)
+    // Mapear proyectos preservando la forma de Project (localizando title y description)
     const mappedProjects: Project[] = projects.map(project => ({
         ...project,
+        title: locale === 'es' ? (project.title_es || project.title) : (project.title_en || project.title),
         description: locale === 'es' ? (project.description_es || project.description) : (project.description_en || project.description)
     }));
 
@@ -222,6 +231,7 @@ export function getPortfolioData(locale: string) {
     return {
         personal: {
             ...personalData,
+            title: locale === 'es' ? (personalData.title_es || personalData.title) : personalData.title,
             bio: uiTexts.hero.bio,
             contacts: mappedContacts,
             cv: mappedCV

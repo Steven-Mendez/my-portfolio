@@ -14,11 +14,12 @@ interface LoadMoreProjectsProps {
     techStackText: string;
     liveDemoText: string;
     codeText: string;
+    aboutProjectText: string;
 }
 
 const INITIAL_PROJECTS_COUNT = 6; // show a fuller grid initially
 
-export default function LoadMoreProjects({ projects, loadMoreText, techStackText, liveDemoText, codeText }: LoadMoreProjectsProps) {
+export default function LoadMoreProjects({ projects, loadMoreText, techStackText, liveDemoText, codeText, aboutProjectText }: LoadMoreProjectsProps) {
     const [visibleProjects, setVisibleProjects] = useState(INITIAL_PROJECTS_COUNT);
     const [activeProject, setActiveProject] = useState<Project | null>(null);
     const [open, setOpen] = useState(false);
@@ -106,6 +107,7 @@ export default function LoadMoreProjects({ projects, loadMoreText, techStackText
                 techStackText={techStackText}
                 liveDemoText={liveDemoText}
                 codeText={codeText}
+                aboutProjectText={aboutProjectText}
             />
         </>
     );

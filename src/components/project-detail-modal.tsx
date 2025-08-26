@@ -15,9 +15,10 @@ interface ProjectDetailModalProps {
     techStackText: string;
     liveDemoText: string;
     codeText: string;
+    aboutProjectText: string;
 }
 
-export default function ProjectDetailModal({ project, open, onClose, techStackText, liveDemoText, codeText }: ProjectDetailModalProps) {
+export default function ProjectDetailModal({ project, open, onClose, techStackText, liveDemoText, codeText, aboutProjectText }: ProjectDetailModalProps) {
     const dialogRef = useRef<HTMLDivElement | null>(null);
 
     // Close on ESC
@@ -93,7 +94,7 @@ export default function ProjectDetailModal({ project, open, onClose, techStackTe
                     <div className="px-5 sm:px-8 pb-6 sm:pb-8 pt-4 sm:pt-6 md:pt-8 overflow-y-auto flex-1" id="project-modal-content">
                         <div className="grid md:grid-cols-3 gap-8 sm:gap-10 md:gap-12">
                             <div className="md:col-span-2">
-                                <h3 className="text-sm sm:text-base font-semibold tracking-wide text-gray-900 dark:text-gray-100 mb-3 sm:mb-4">About this project</h3>
+                                <h3 className="text-sm sm:text-base font-semibold tracking-wide text-gray-900 dark:text-gray-100 mb-3 sm:mb-4">{aboutProjectText}</h3>
                                 <p className="text-sm md:text-base leading-relaxed text-gray-600 dark:text-gray-300 mb-6 sm:mb-8 whitespace-pre-line">
                                     {project.description}
                                 </p>
