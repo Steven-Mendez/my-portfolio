@@ -3,6 +3,7 @@ import ProjectsSection from '@/components/projects-section'
 import ExperienceSection from '@/components/experience-section'
 import Footer from '@/components/footer'
 import Sidebar from '@/components/sidebar'
+import Chatbot from '@/components/chatbot'
 import { getPortfolioData } from '@/data/portfolio'
 
 // Generate static params for static export
@@ -30,6 +31,7 @@ export default async function HomePage({ params }: PageProps) {
         <Footer locale={locale} footer={data.footer} />
       </main>
       <Sidebar locale={locale} />
+      <Chatbot locale={locale} />
     </div>
   )
 } 
