@@ -132,6 +132,13 @@
   /* Performance optimizations */
   html {
     font-display: swap;
+    scroll-behavior: smooth;
+  }
+
+  /* Page transition animation */
+  html {
+    opacity: 1;
+    transition: opacity 0.3s ease-in;
   }
 
   img {

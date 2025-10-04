@@ -16,7 +16,33 @@ export function SimpleLanguageToggle() {
   const targetUrl = currentLocale === 'en' ? '/es' : '/en';
 
   const handleLanguageChange = () => {
-    router.push(targetUrl);
+    // Get the current scroll position to determine which section is visible
+    const sections = ['hero', 'projects', 'experience'];
+    let currentSection = '';
+
+    for (const sectionId of sections) {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        // Check if section is in the viewport (top half of the screen)
+        if (rect.top <= window.innerHeight / 2 && rect.bottom >= 0) {
+          currentSection = sectionId;
+          break;
+        }
+      }
+    }
+
+    // Add fade-out animation before navigation
+    document.documentElement.style.opacity = '0';
+    document.documentElement.style.transition = 'opacity 0.2s ease-out';
+
+    // Navigate to the new locale with the current section hash
+    const urlWithHash = currentSection ? `${targetUrl}#${currentSection}` : targetUrl;
+
+    // Small delay for the fade effect, then navigate
+    setTimeout(() => {
+      router.push(urlWithHash);
+    }, 150);
   };
 
   // Local SVGs in public/

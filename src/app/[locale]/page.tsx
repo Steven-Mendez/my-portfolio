@@ -4,6 +4,7 @@ import ExperienceSection from '@/components/experience-section'
 import Footer from '@/components/footer'
 import Sidebar from '@/components/sidebar'
 import Chatbot from '@/components/chatbot'
+import { PageTransition } from '@/components/page-transition'
 import { getPortfolioData } from '@/data/portfolio'
 
 // Generate static params for static export
@@ -23,15 +24,17 @@ export default async function HomePage({ params }: PageProps) {
   const data = getPortfolioData(locale);
 
   return (
-    <div className="min-h-screen bg-background transition-colors">
-      <main className="max-w-4xl mx-auto px-3 sm:px-4 py-6 sm:py-10 space-y-12 sm:space-y-14">
-        <HeroSection data={data} />
-        <ProjectsSection data={data} />
-        <ExperienceSection data={data} />
-        <Footer locale={locale} footer={data.footer} />
-      </main>
-      <Sidebar locale={locale} />
-      <Chatbot locale={locale} />
-    </div>
+    <PageTransition>
+      <div className="min-h-screen bg-background transition-colors">
+        <main className="max-w-4xl mx-auto px-3 sm:px-4 py-6 sm:py-10 space-y-12 sm:space-y-14">
+          <HeroSection data={data} />
+          <ProjectsSection data={data} />
+          <ExperienceSection data={data} />
+          <Footer locale={locale} footer={data.footer} />
+        </main>
+        <Sidebar locale={locale} />
+        <Chatbot locale={locale} />
+      </div>
+    </PageTransition>
   )
 } 

@@ -16,9 +16,9 @@ interface EnhancedLanguageToggleProps {
     };
 }
 
-export function EnhancedLanguageToggle({ 
-    variant = "default", 
-    showLabel = false, 
+export function EnhancedLanguageToggle({
+    variant = "default",
+    showLabel = false,
     size = "md",
     className = "",
     texts
@@ -35,7 +35,33 @@ export function EnhancedLanguageToggle({
     const targetUrl = currentLocale === 'en' ? '/es' : '/en';
 
     const handleLanguageChange = () => {
-        router.push(targetUrl);
+        // Get the current scroll position to determine which section is visible
+        const sections = ['hero', 'projects', 'experience'];
+        let currentSection = '';
+
+        for (const sectionId of sections) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                const rect = element.getBoundingClientRect();
+                // Check if section is in the viewport (top half of the screen)
+                if (rect.top <= window.innerHeight / 2 && rect.bottom >= 0) {
+                    currentSection = sectionId;
+                    break;
+                }
+            }
+        }
+
+        // Add fade-out animation before navigation
+        document.documentElement.style.opacity = '0';
+        document.documentElement.style.transition = 'opacity 0.2s ease-out';
+
+        // Navigate to the new locale with the current section hash
+        const urlWithHash = currentSection ? `${targetUrl}#${currentSection}` : targetUrl;
+
+        // Small delay for the fade effect, then navigate
+        setTimeout(() => {
+            router.push(urlWithHash);
+        }, 150);
         setIsOpen(false);
     };
 
@@ -49,7 +75,7 @@ export function EnhancedLanguageToggle({
 
     const sizeClasses = {
         sm: "w-8 h-8",
-        md: "w-12 h-12", 
+        md: "w-12 h-12",
         lg: "w-16 h-16"
     };
 
@@ -114,9 +140,8 @@ export function EnhancedLanguageToggle({
                                     }
                                     setIsOpen(false);
                                 }}
-                                className={`w-full px-3 py-2 text-left hover:bg-muted/50 dark:hover:bg-muted/50 transition-colors flex items-center gap-2 ${
-                                    lang.code === currentLocale ? 'bg-primary/10 text-primary' : 'text-foreground'
-                                }`}
+                                className={`w-full px-3 py-2 text-left hover:bg-muted/50 dark:hover:bg-muted/50 transition-colors flex items-center gap-2 ${lang.code === currentLocale ? 'bg-primary/10 text-primary' : 'text-foreground'
+                                    }`}
                             >
                                 <div className="relative w-5 h-5 rounded-full overflow-hidden">
                                     <Image
@@ -157,7 +182,7 @@ export function EnhancedLanguageToggle({
                     </div>
                     <div className="absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 transition-opacity rounded-full" />
                 </Button>
-                
+
                 {/* Etiqueta simplificada */}
                 <div className="flex-1">
                     <div className="text-sm font-medium text-foreground">
@@ -189,7 +214,7 @@ export function EnhancedLanguageToggle({
                 </div>
                 <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity rounded-full" />
             </Button>
-            
+
             {showLabel && (
                 <div className="absolute left-full ml-2 top-1/2 -translate-y-1/2 bg-foreground text-background px-2 py-1 rounded text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
                     {targetLanguage?.name}
