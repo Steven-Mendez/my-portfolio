@@ -1,7 +1,6 @@
 "use client";
-
-/* eslint-disable @next/next/no-img-element */
 import { useState } from 'react';
+import Image from 'next/image';
 import { ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ProjectDetailModal from './project-detail-modal';
@@ -49,11 +48,13 @@ export default function LoadMoreProjects({ projects, loadMoreText, techStackText
                         {/* Imagen */}
                         <div className="relative overflow-hidden h-48">
                             {project.image && (
-                                <img
+                                <Image
                                     src={project.image}
                                     alt={project.title}
-                                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                                    loading={idx < 4 ? 'eager' : 'lazy'}
+                                    fill
+                                    sizes="(min-width: 768px) 50vw, 100vw"
+                                    priority={idx < 2}
+                                    className="object-cover transition-transform duration-300 group-hover:scale-110"
                                 />
                             )}
                             {/* Overlay gradiente sólo en hover */}

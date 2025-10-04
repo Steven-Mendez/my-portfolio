@@ -3,7 +3,7 @@ import ProjectsSection from '@/components/projects-section'
 import ExperienceSection from '@/components/experience-section'
 import Footer from '@/components/footer'
 import Sidebar from '@/components/sidebar'
-import Chatbot from '@/components/chatbot'
+import Chatbot from '@/components/chatbot-client'
 import { PageTransition } from '@/components/page-transition'
 import { getPortfolioData } from '@/data/portfolio'
 
@@ -20,11 +20,12 @@ interface PageProps {
 }
 
 export default async function HomePage({ params }: PageProps) {
-  const { locale } = await params;
-  const data = getPortfolioData(locale);
+  const { locale } = await params
+  const data = getPortfolioData(locale)
 
   return (
-    <PageTransition>
+    <>
+      <PageTransition />
       <div className="min-h-screen bg-background transition-colors">
         <main className="max-w-4xl mx-auto px-3 sm:px-4 py-6 sm:py-10 space-y-12 sm:space-y-14">
           <HeroSection data={data} />
@@ -35,6 +36,6 @@ export default async function HomePage({ params }: PageProps) {
         <Sidebar locale={locale} />
         <Chatbot locale={locale} />
       </div>
-    </PageTransition>
+    </>
   )
 } 

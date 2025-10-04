@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from 'react';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Github, ExternalLink, X } from 'lucide-react';
 import { getTechColor } from '@/lib/utils';
@@ -73,8 +74,13 @@ export default function ProjectDetailModal({ project, open, onClose, techStackTe
                     <div className="relative w-full">
                         {project.image ? (
                             <div className="relative h-52 xs:h-60 sm:h-[40vh] md:h-[45vh] xl:h-[48vh] overflow-hidden">
-                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img src={project.image} alt={project.title} className="w-full h-full object-cover" loading="lazy" />
+                                <Image
+                                    src={project.image}
+                                    alt={project.title}
+                                    fill
+                                    sizes="100vw"
+                                    className="object-cover"
+                                />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
                                 <div className="absolute bottom-3 sm:bottom-4 left-5 sm:left-6 right-24 sm:right-28">
                                     <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-1.5 sm:mb-2 drop-shadow-sm leading-tight">

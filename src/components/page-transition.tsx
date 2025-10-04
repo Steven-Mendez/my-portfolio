@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-export function PageTransition({ children }: { children: React.ReactNode }) {
+export function PageTransition() {
     useEffect(() => {
         if (typeof window === 'undefined' || !window.location.hash) {
             return;
@@ -24,5 +24,5 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
         };
     }, []);
 
-    return <>{children}</>;
+    return null;
 }
