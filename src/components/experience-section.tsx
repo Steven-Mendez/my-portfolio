@@ -7,22 +7,23 @@ interface ExperienceSectionProps {
         sections: {
             experience: string;
         };
-        projects: {
+        experience: {
+            items: Array<{
+                title: string;
+                company: string;
+                period: string;
+                description: string;
+                technologies: string[];
+            }>;
             loadMore: string;
             techStack: string;
         };
-        experience: Array<{
-            title: string;
-            company: string;
-            period: string;
-            description: string;
-            technologies: string[];
-        }>;
     };
 }
 
 export default function ExperienceSection({ data }: ExperienceSectionProps) {
     const { experience } = data;
+    const experienceItems = experience.items;
 
     return (
         <section id="experience" className="w-full" aria-labelledby="experience-heading">
@@ -35,10 +36,10 @@ export default function ExperienceSection({ data }: ExperienceSectionProps) {
             <Separator className="my-4 sm:my-5" />
 
             <LoadMoreExperiences
-                experiences={experience}
-                loadMoreText={data.projects.loadMore}
-                techStackText={data.projects.techStack}
+                experiences={experienceItems}
+                loadMoreText={experience.loadMore}
+                techStackText={experience.techStack}
             />
         </section>
     )
-} 
+}

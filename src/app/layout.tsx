@@ -48,36 +48,6 @@ export const metadata: Metadata = {
     },
 };
 
-// Schema markup for the website
-const schemaMarkup = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Steven Mendez",
-    "jobTitle": "Backend & AI Developer",
-    "description": "Passionate developer specializing in backend systems and artificial intelligence.",
-    "url": env.NEXT_PUBLIC_SITE_URL,
-    "sameAs": [
-        "https://github.com/stevenmendez",
-        "https://linkedin.com/in/stevenmendez"
-    ],
-    "knowsAbout": [
-        "Backend Development",
-        "Artificial Intelligence",
-        "Python",
-        "Node.js",
-        "APIs",
-        "Databases",
-        "Web Development"
-    ],
-    "email": "stevenampaiz@gmail.com",
-    "telephone": "+50581587176",
-    "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Managua",
-        "addressCountry": "Nicaragua"
-    }
-};
-
 export default function RootLayout({
     children,
 }: {
@@ -97,12 +67,6 @@ export default function RootLayout({
                 {/* Preload critical resources */}
                 <link rel="preload" href="/image.png" as="image" type="image/png" />
 
-                <script
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{
-                        __html: JSON.stringify(schemaMarkup),
-                    }}
-                />
             </head>
             <body className={inter.className}>
                 {children}

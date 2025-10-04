@@ -15,6 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     const { locale } = await params;
     const isSpanish = locale === 'es';
     const currentUrl = `${env.NEXT_PUBLIC_SITE_URL}/${locale}`;
+    const ogImage = `${env.NEXT_PUBLIC_SITE_URL}/image.png`;
 
     return {
         title: isSpanish ? "Steven Mendez - Desarrollador Backend & IA" : "Steven Mendez - Backend & AI Developer",
@@ -37,7 +38,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
                 : "Passionate developer specializing in backend systems and artificial intelligence.",
             images: [
                 {
-                    url: "/og-image.jpg",
+                    url: ogImage,
                     width: 1200,
                     height: 630,
                     alt: "Steven Mendez Portfolio",
@@ -50,7 +51,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
             description: isSpanish
                 ? "Desarrollador apasionado especializado en sistemas backend e inteligencia artificial."
                 : "Passionate developer specializing in backend systems and artificial intelligence.",
-            images: ["/og-image.jpg"],
+            images: [ogImage],
         },
         robots: {
             index: true,

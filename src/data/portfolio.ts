@@ -67,6 +67,7 @@ export const uiTextsEN = {
         aboutProject: "About this project"
     },
     experience: {
+        loadMore: "Load More",
         techStack: "Tech Stack"
     },
     hero: {
@@ -117,6 +118,7 @@ export const uiTextsES = {
         aboutProject: "Acerca de este proyecto"
     },
     experience: {
+        loadMore: "Cargar más",
         techStack: "Tecnologías"
     },
     hero: {
@@ -232,6 +234,12 @@ export function getPortfolioData(locale: string) {
         description: locale === 'es' ? (project.description_es || project.description) : (project.description_en || project.description)
     }));
 
+    const experienceContent = {
+        items: mappedExperiences,
+        loadMore: uiTexts.experience.loadMore,
+        techStack: uiTexts.experience.techStack,
+    };
+
     // Mapear contactos para usar labels internacionalizados
     const contactLabelMap: Record<string, keyof typeof uiTexts.hero.contacts> = {
         Mail: 'email',
@@ -261,13 +269,12 @@ export function getPortfolioData(locale: string) {
             cv: mappedCV
         },
         sections: uiTexts.sections,
-        experience: mappedExperiences,
+        experience: experienceContent,
         projects: { // mantenemos textos + lista tipada
             ...uiTexts.projects,
-            ...uiTexts.experience,
             items: mappedProjects
         },
         education,
         footer: uiTexts.footer
     };
-} 
+}

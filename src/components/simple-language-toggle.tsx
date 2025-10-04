@@ -32,17 +32,10 @@ export function SimpleLanguageToggle() {
       }
     }
 
-    // Add fade-out animation before navigation
-    document.documentElement.style.opacity = '0';
-    document.documentElement.style.transition = 'opacity 0.2s ease-out';
-
     // Navigate to the new locale with the current section hash
     const urlWithHash = currentSection ? `${targetUrl}#${currentSection}` : targetUrl;
 
-    // Small delay for the fade effect, then navigate
-    setTimeout(() => {
-      router.push(urlWithHash);
-    }, 150);
+    router.push(urlWithHash);
   };
 
   // Local SVGs in public/
