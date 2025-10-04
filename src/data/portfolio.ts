@@ -72,8 +72,8 @@ export const uiTextsEN = {
     hero: {
         downloadCV: "Download CV",
         bio: [
-            "I'm a Software Developer with over 2 years of experience specializing in Backend Development and Artificial Intelligence. I'm skilled in C#, .NET, and Python, with expertise in building RESTful APIs and integrating AI platforms.",
-            "I'm passionate about creating scalable and efficient solutions, automating critical processes, and building robust systems that solve real-world problems."
+            "Software Developer with 3 years of experience specializing in Backend Development and Artificial Intelligence. Proficient in C#, .NET, Python, and modern frontend technologies like React and TypeScript, with strong experience in building RESTful APIs and integrating AI platforms.",
+            "Passionate about creating elegant solutions to complex problems—from optimizing system performance to building AI-powered platforms that serve clients worldwide."
         ],
         contacts: {
             email: "Email",
@@ -122,8 +122,8 @@ export const uiTextsES = {
     hero: {
         downloadCV: "Descargar CV",
         bio: [
-            "Soy un desarrollador de software con más de 2 años de experiencia especializado en desarrollo backend e inteligencia artificial. Me destaco en C#, .NET y Python, con amplia experiencia en APIs RESTful e integración con plataformas de IA.",
-            "Me apasiona crear soluciones escalables y eficientes, automatizando procesos críticos y construyendo sistemas robustos que resuelven problemas reales del mundo."
+            "Desarrollador de Software con 3 años de experiencia especializado en desarrollo backend e inteligencia artificial. Competente en C#, .NET, Python y tecnologías frontend modernas como React y TypeScript, con sólida experiencia en construcción de APIs RESTful e integración con plataformas de IA.",
+            "Apasionado por crear soluciones elegantes a problemas complejos—desde optimizar el rendimiento de sistemas hasta construir plataformas potenciadas con IA que sirven a clientes en todo el mundo."
         ],
         contacts: {
             email: "Correo",
@@ -146,18 +146,18 @@ export const uiTextsES = {
 
 export const experiences: Experience[] = [
     {
-        title: "Python Developer",
-        title_en: "Python Developer",
-        title_es: "Desarrollador Python",
-        company: "MILRD",
+        title: "Fullstack Developer",
+        title_en: "Fullstack Developer",
+        title_es: "Desarrollador Fullstack",
+        company: "WERN",
         duration: "2025 – Present",
         duration_en: "2025 – Present",
         duration_es: "2025 – Presente",
         location: "Remote",
-        description: "Developed Django APIs for Aristide, the first AI Copilot for VTP, integrating multiple AI platforms including OpenAI, Anthropic, Claude, Gemini, and DeepSeek.\n\nDesigned and implemented features that enable tutors to create reasoning flowcharts for analyzing questions, detecting misconceptions, and defining key learning objectives.\n\nBuilt a no-code flowchart builder using React/TypeScript and React Flow for creating and auditing reasoning flows.\n\nCreated Telegram bots powered by Aristide for USMLE, MCAT, and System Design interview practice.\n\nImplemented CI/CD pipelines with GitHub Actions, eliminating manual deployments and enabling the entire team to deploy with a simple push.\n\nIntegrated Stripe into Telegram bots to handle recurring subscriptions through webhooks.",
-        description_en: "Developed Django APIs for Aristide, the first AI Copilot for VTP, integrating multiple AI platforms including OpenAI, Anthropic, Claude, Gemini, and DeepSeek.\n\nDesigned and implemented features that enable tutors to create reasoning flowcharts for analyzing questions, detecting misconceptions, and defining key learning objectives.\n\nBuilt a no-code flowchart builder using React/TypeScript and React Flow for creating and auditing reasoning flows.\n\nCreated Telegram bots powered by Aristide for USMLE, MCAT, and System Design interview practice.\n\nImplemented CI/CD pipelines with GitHub Actions, eliminating manual deployments and enabling the entire team to deploy with a simple push.\n\nIntegrated Stripe into Telegram bots to handle recurring subscriptions through webhooks.",
-        description_es: "Desarrollé APIs en Django para Aristide, el primer AI Copilot de la VTP, integrando múltiples plataformas de IA incluyendo OpenAI, Anthropic, Claude, Gemini y DeepSeek.\n\nDiseñé e implementé funcionalidades que permiten a los tutores crear diagramas de flujo de razonamiento para analizar preguntas, detectar conceptos erróneos y definir objetivos de aprendizaje clave.\n\nConstruí un creador de diagramas de flujo sin código usando React/TypeScript y React Flow para crear y auditar flujos de razonamiento.\n\nCreé bots de Telegram impulsados por Aristide para práctica de entrevistas de USMLE, MCAT y System Design.\n\nImplementé pipelines de CI/CD con GitHub Actions, eliminando despliegues manuales y permitiendo que todo el equipo pueda desplegar con un simple push.\n\nIntegré Stripe en los bots de Telegram para manejar suscripciones recurrentes a través de webhooks.",
-        techStack: ["Python", "Django", "REST API", "WebSockets", "OpenAI", "Anthropic", "Claude", "Gemini", "DeepSeek", "React", "TypeScript", "React Flow", "Telegram Bots", "GitHub Actions", "Stripe", "Webhooks"]
+        description: "Fullstack developer for an international software consulting firm, delivering custom solutions for diverse clients across multiple industries worldwide.\n\nDeveloped AI-powered educational platforms with advanced conversational capabilities using Prompt Engineering, RAG (Retrieval-Augmented Generation), FAISS vector databases, and embeddings—significantly improving response accuracy and contextual understanding.\n\nDesigned and built a production-ready flowchart builder using React, TypeScript, and React Flow, empowering clients to create custom reasoning diagrams independently without developer intervention.\n\nExpanded platform reach by developing Telegram bots and VS Code extensions, creating multi-platform ecosystems. Built flexible AI integration layer supporting OpenAI, Claude, Gemini, and DeepSeek for optimal model selection.",
+        description_en: "Fullstack developer for an international software consulting firm, delivering custom solutions for diverse clients across multiple industries worldwide.\n\nDeveloped AI-powered educational platforms with advanced conversational capabilities using Prompt Engineering, RAG (Retrieval-Augmented Generation), FAISS vector databases, and embeddings—significantly improving response accuracy and contextual understanding.\n\nDesigned and built a production-ready flowchart builder using React, TypeScript, and React Flow, empowering clients to create custom reasoning diagrams independently without developer intervention.\n\nExpanded platform reach by developing Telegram bots and VS Code extensions, creating multi-platform ecosystems. Built flexible AI integration layer supporting OpenAI, Claude, Gemini, and DeepSeek for optimal model selection.",
+        description_es: "Desarrollador fullstack para una consultora internacional de software, entregando soluciones personalizadas para diversos clientes en múltiples industrias alrededor del mundo.\n\nDesarrollé plataformas educativas potenciadas con IA con capacidades conversacionales avanzadas usando Prompt Engineering, RAG (Retrieval-Augmented Generation), bases de datos vectoriales FAISS y embeddings—mejorando significativamente la precisión de respuestas y comprensión contextual.\n\nDiseñé y construí una herramienta de creación de diagramas de flujo lista para producción usando React, TypeScript y React Flow, permitiendo a clientes crear diagramas de razonamiento personalizados de manera independiente sin intervención de desarrolladores.\n\nExpandí el alcance de plataformas desarrollando bots de Telegram y extensiones de VS Code, creando ecosistemas multiplataforma. Construí una capa flexible de integración de IA con soporte para OpenAI, Claude, Gemini y DeepSeek para selección óptima de modelos.",
+        techStack: ["Python", "Django", "React", "TypeScript", "Prompt Engineering", "RAG", "FAISS", "Embeddings", "OpenAI", "Claude", "Gemini", "DeepSeek", "React Flow", "WebSockets", "Telegram Bots", "VS Code Extensions"]
     },
     {
         title: "Backend Developer",
@@ -168,24 +168,24 @@ export const experiences: Experience[] = [
         duration_en: "2024 – 2025",
         duration_es: "2024 – 2025",
         location: "Remote",
-        description: "Developed C# .NET RESTful APIs for comprehensive HR and Orders management systems, including full CRUD operations, data validation, security measures, and authentication.\n\nImplemented key HR modules covering Attendance tracking, Payroll processing, Scheduling management, and Loans administration, applying business logic for accurate calculations.\n\nBuilt a robust Orders system with detailed processing capabilities, logistics management, and automated bank reconciliation features.",
-        description_en: "Developed C# .NET RESTful APIs for comprehensive HR and Orders management systems, including full CRUD operations, data validation, security measures, and authentication.\n\nImplemented key HR modules covering Attendance tracking, Payroll processing, Scheduling management, and Loans administration, applying business logic for accurate calculations.\n\nBuilt a robust Orders system with detailed processing capabilities, logistics management, and automated bank reconciliation features.",
-        description_es: "Desarrollé APIs RESTful en C# .NET para sistemas integrales de gestión de RRHH y Pedidos, incluyendo operaciones CRUD completas, validación de datos, medidas de seguridad y autenticación.\n\nImplementé módulos clave de RRHH que cubren seguimiento de asistencia, procesamiento de nómina, gestión de horarios y administración de préstamos, aplicando lógica de negocio para cálculos precisos.\n\nConstruí un sistema robusto de Pedidos con capacidades de procesamiento detallado, gestión logística y funciones automatizadas de conciliación bancaria.",
+        description: "Built comprehensive C# .NET RESTful APIs for HR and Orders management systems, featuring full CRUD operations, robust authentication, and enterprise-level security measures.\n\nDelivered complete HR solution including Attendance tracking, automated Payroll processing, intelligent Scheduling, and Loans administration with complex business logic calculations. Developed Orders system with integrated logistics management and automated bank reconciliation, streamlining financial operations.",
+        description_en: "Built comprehensive C# .NET RESTful APIs for HR and Orders management systems, featuring full CRUD operations, robust authentication, and enterprise-level security measures.\n\nDelivered complete HR solution including Attendance tracking, automated Payroll processing, intelligent Scheduling, and Loans administration with complex business logic calculations. Developed Orders system with integrated logistics management and automated bank reconciliation, streamlining financial operations.",
+        description_es: "Construí APIs RESTful completas en C# .NET para sistemas de gestión de RRHH y Pedidos, con operaciones CRUD completas, autenticación robusta y medidas de seguridad de nivel empresarial.\n\nEntregué solución completa de RRHH incluyendo seguimiento de asistencia, procesamiento automatizado de nómina, gestión inteligente de horarios y administración de préstamos con cálculos de lógica de negocio complejos. Desarrollé sistema de Pedidos con gestión logística integrada y conciliación bancaria automatizada, optimizando operaciones financieras.",
         techStack: ["C#", ".NET", "Entity Framework", "SQL Server", "REST API"]
     },
     {
         title: "Systems Analyst",
         title_en: "Systems Analyst",
         title_es: "Analista de Sistemas",
-        company: "National University of Engineering",
+        company: "Universidad Nacional de Ingeniería",
         duration: "2023 – 2024",
         duration_en: "2023 – 2024",
         duration_es: "2023 – 2024",
         location: "Nicaragua",
-        description: "Developed C# .NET 6 RESTful APIs following Clean Architecture principles and implemented GitLab CI/CD pipelines.\n\nMaintained and enhanced the Budget and Planning system built on .NET Framework 4.7 and WebForms.\n\nSuccessfully migrated 17 reports from Crystal Reports to iTextSharp, achieving a 90% efficiency improvement by reducing report generation time from approximately 10 minutes to under 30 seconds.\n\nOptimized complex T-SQL stored procedures, dramatically reducing execution time from around 10 minutes to under 10 seconds.\n\nMentored 4 interns in C#, SQL, and Entity Framework, significantly improving their productivity and instilling best practices.",
-        description_en: "Developed C# .NET 6 RESTful APIs following Clean Architecture principles and implemented GitLab CI/CD pipelines.\n\nMaintained and enhanced the Budget and Planning system built on .NET Framework 4.7 and WebForms.\n\nSuccessfully migrated 17 reports from Crystal Reports to iTextSharp, achieving a 90% efficiency improvement by reducing report generation time from approximately 10 minutes to under 30 seconds.\n\nOptimized complex T-SQL stored procedures, dramatically reducing execution time from around 10 minutes to under 10 seconds.\n\nMentored 4 interns in C#, SQL, and Entity Framework, significantly improving their productivity and instilling best practices.",
-        description_es: "Desarrollé APIs RESTful en C# .NET 6 siguiendo principios de Clean Architecture e implementé pipelines de GitLab CI/CD.\n\nMantuve y mejoré el sistema de Planificación y Presupuesto construido en .NET Framework 4.7 y WebForms.\n\nMigré exitosamente 17 reportes de Crystal Reports a iTextSharp, logrando una mejora del 90% en eficiencia al reducir el tiempo de generación de reportes de aproximadamente 10 minutos a menos de 30 segundos.\n\nOptimicé procedimientos almacenados T-SQL complejos, reduciendo dramáticamente el tiempo de ejecución de alrededor de 10 minutos a menos de 10 segundos.\n\nFui mentor de 4 pasantes en C#, SQL y Entity Framework, mejorando significativamente su productividad e inculcando buenas prácticas.",
-        techStack: ["C#", ".NET 6", "Clean Architecture", "GitLab CI", "Entity Framework", "SQL Server", "WebForms", "Crystal Reports", "iTextSharp", "T-SQL"]
+        description: "Led development and maintenance of the university's Budget and Planning system, building scalable backend solutions with C# .NET and implementing automated CI/CD pipelines that streamlined software delivery.\n\nAchieved major performance improvements by modernizing the reporting infrastructure—reducing critical report generation times by 90% and optimizing database operations from minutes to under 10 seconds, dramatically enhancing user productivity.\n\nMentored 4 interns and established comprehensive coding standards that improved code quality and development practices across the IT department.",
+        description_en: "Led development and maintenance of the university's Budget and Planning system, building scalable backend solutions with C# .NET and implementing automated CI/CD pipelines that streamlined software delivery.\n\nAchieved major performance improvements by modernizing the reporting infrastructure—reducing critical report generation times by 90% and optimizing database operations from minutes to under 10 seconds, dramatically enhancing user productivity.\n\nMentored 4 interns and established comprehensive coding standards that improved code quality and development practices across the IT department.",
+        description_es: "Lideré el desarrollo y mantenimiento del sistema de Planificación y Presupuesto de la universidad, construyendo soluciones backend escalables con C# .NET e implementando pipelines CI/CD automatizados que agilizaron la entrega de software.\n\nLogré mejoras importantes de rendimiento modernizando la infraestructura de reportes—reduciendo los tiempos de generación de reportes críticos en 90% y optimizando operaciones de base de datos de minutos a menos de 10 segundos, mejorando dramáticamente la productividad de usuarios.\n\nFui mentor de 4 pasantes y establecí estándares completos de código que mejoraron la calidad del código y las prácticas de desarrollo en el área de TI.",
+        techStack: ["C#", ".NET 6", "Clean Architecture", "GitLab CI/CD", "Entity Framework", "SQL Server", "T-SQL", "WebForms", "iTextSharp"]
     }
 ]
 
@@ -194,9 +194,9 @@ export const projects: Project[] = [
         title: "Personal Portfolio Website",
         title_en: "My Portfolio",
         title_es: "Mi Portfolio",
-        description: "Personal portfolio to showcase projects and experience. Responsive, bilingual (EN/ES), theme toggle and clean accessible UI. Deployed on Netlify.",
-        description_en: "This portfolio showcases my modern frontend development skills using Next.js 15, React 18, and TypeScript. It features server-side rendering, internationalization (EN/ES), dark/light theme toggle, responsive design, and accessibility best practices. Built with modern tooling including Tailwind CSS and shadcn/ui components, and deployed on Netlify with static generation for optimal performance.",
-        description_es: "Este portafolio demuestra mis habilidades de desarrollo frontend moderno usando Next.js 15, React 18 y TypeScript. Incluye renderizado del lado del servidor, internacionalización (EN/ES), cambio de tema claro/oscuro, diseño responsive y mejores prácticas de accesibilidad. Construido con herramientas modernas incluyendo Tailwind CSS y componentes shadcn/ui, y desplegado en Netlify con generación estática para un rendimiento óptimo.",
+        description: "Modern, responsive portfolio showcasing projects and experience. Features bilingual support (EN/ES), theme toggle, and clean accessible UI. Deployed on Netlify.",
+        description_en: "Modern portfolio built with Next.js 15, React 18, and TypeScript, demonstrating expertise in contemporary frontend development. Features server-side rendering, full internationalization (EN/ES), dark/light theme switching, responsive design across all devices, and WCAG accessibility standards. Leverages Tailwind CSS and shadcn/ui for a polished component library, deployed on Netlify with static generation for blazing-fast performance.",
+        description_es: "Portfolio moderno construido con Next.js 15, React 18 y TypeScript, demostrando experiencia en desarrollo frontend contemporáneo. Incluye renderizado del lado del servidor, internacionalización completa (EN/ES), cambio de tema claro/oscuro, diseño responsive en todos los dispositivos y estándares de accesibilidad WCAG. Aprovecha Tailwind CSS y shadcn/ui para una biblioteca de componentes refinada, desplegado en Netlify con generación estática para un rendimiento ultra rápido.",
         image: "/portofolio-preview.png",
         status: "In Progress",
         techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "shadcn/ui", "Netlify"],
@@ -207,7 +207,7 @@ export const projects: Project[] = [
 
 export const education: Education = {
     degree: "Bachelor of Science in Computer Engineering",
-    institution: "National University of Engineering (Universidad Nacional de Ingeniería)",
+    institution: "Universidad Nacional de Ingeniería",
     duration: "2019-2023",
     location: "Managua, Nicaragua"
 }
