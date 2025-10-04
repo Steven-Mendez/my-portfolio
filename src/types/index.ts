@@ -1,11 +1,7 @@
 // src/types/index.ts
 export interface Project {
     title: string
-    title_en?: string
-    title_es?: string
     description: string
-    description_en?: string
-    description_es?: string
     image: string
     status: 'Completed' | 'In Progress' | 'Archived'
     techStack: string[]
@@ -15,24 +11,11 @@ export interface Project {
 
 export interface Experience {
     title: string
-    title_en?: string
-    title_es?: string
     company: string
     duration: string
-    duration_en?: string
-    duration_es?: string
     location: string
     description: string
-    description_en?: string
-    description_es?: string
     techStack: string[]
-}
-
-export interface Education {
-    degree: string
-    institution: string
-    duration: string
-    location: string
 }
 
 // Reusable contact link metadata used across hero and contact components
