@@ -21,7 +21,9 @@ export default function Sidebar({ locale }: SidebarProps) {
     const pathname = usePathname();
     const currentLocale = locale || (pathname.startsWith('/es') ? 'es' : 'en');
     const texts = currentLocale === 'en' ? uiTextsEN : uiTextsES;
-    const { theme } = useTheme();
+    const { theme, resolvedTheme } = useTheme();
+    const effectiveTheme = (theme === "system" ? resolvedTheme : theme) ?? "light";
+    const nextThemeLabel = effectiveTheme === "light" ? texts.configuration.dark : texts.configuration.light;
 
     useEffect(() => {
         const checkMobile = () => {
@@ -97,7 +99,7 @@ export default function Sidebar({ locale }: SidebarProps) {
                                         <TooltipTrigger asChild>
                                             <EnhancedLanguageToggle variant="mobile" texts={{ language: texts.configuration.language }} />
                                         </TooltipTrigger>
-                                        <TooltipContent side="top" sideOffset={12}>
+                                        <TooltipContent side="right" sideOffset={12}>
                                             {texts.configuration.language}
                                         </TooltipContent>
                                     </Tooltip>
@@ -107,8 +109,8 @@ export default function Sidebar({ locale }: SidebarProps) {
                                         <TooltipTrigger asChild>
                                             <EnhancedThemeToggle variant="mobile" texts={{ light: texts.configuration.light, dark: texts.configuration.dark }} />
                                         </TooltipTrigger>
-                                        <TooltipContent side="top" sideOffset={12}>
-                                            {theme === "light" ? texts.configuration.dark : texts.configuration.light}
+                                        <TooltipContent side="right" sideOffset={12} className="min-w-[7.5rem] text-center">
+                                            {nextThemeLabel}
                                         </TooltipContent>
                                     </Tooltip>
                                 </TooltipProvider>
@@ -137,7 +139,7 @@ export default function Sidebar({ locale }: SidebarProps) {
                                 <EnhancedLanguageToggle variant="compact" size="md" />
                             </div>
                         </TooltipTrigger>
-                        <TooltipContent side="top" sideOffset={8}>
+                        <TooltipContent side="right" sideOffset={12}>
                             {texts.configuration.language}
                         </TooltipContent>
                     </Tooltip>
@@ -149,8 +151,8 @@ export default function Sidebar({ locale }: SidebarProps) {
                                 <EnhancedThemeToggle variant="compact" size="md" />
                             </div>
                         </TooltipTrigger>
-                        <TooltipContent side="top" sideOffset={8}>
-                            {theme === "light" ? texts.configuration.dark : texts.configuration.light}
+                        <TooltipContent side="right" sideOffset={12} className="min-w-[7.5rem] text-center">
+                            {nextThemeLabel}
                         </TooltipContent>
                     </Tooltip>
                 </TooltipProvider>
