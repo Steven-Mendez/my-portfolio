@@ -1,151 +1,78 @@
-# Portfolio Website
+# Steven Mendez Portfolio
 
-A modern, responsive portfolio website built with Next.js, TypeScript, and Tailwind CSS. Features internationalization, dark/light theme, and optimized for performance and SEO.
+Modern, bilingual portfolio built with Next.js 15, TypeScript, and Tailwind CSS. It highlights professional experience, projects, and includes an AI-powered assistant that mirrors Steven's voice in English and Spanish.
 
-## ✨ Features
+![Portfolio preview](public/portofolio-preview.png)
 
-- 🌙 **Dark/Light Theme** - Automatic theme switching with system preference detection
-- 🌍 **Internationalization** - Full English/Spanish support
-- 📱 **Fully Responsive** - Optimized for all devices and screen sizes
-- ⚡ **Performance Optimized** - Static site generation, image optimization, lazy loading
-- 🎨 **Modern UI/UX** - Clean design with shadcn/ui components
-- 🔍 **SEO Optimized** - Meta tags, OpenGraph, structured data
-- 🚀 **Netlify Ready** - Optimized for static hosting
+**Live site:** https://steven-mendez.netlify.app/en/
 
-## 🛠 Tech Stack
+## Highlights
+- Full internationalization with locale-aware routing (`/en`, `/es`)
+- Dark/light theming with persistent preference and system detection
+- Responsive layout with animated page transitions and Radix UI primitives
+- Project and experience sections backed by structured data definitions
+- Chatbot powered by an OpenAI-backed hook with graceful offline fallbacks
+- Deployment-ready configuration for Netlify static hosting
 
-### Frontend
-- **Framework**: Next.js 15 (App Router)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **UI Components**: shadcn/ui
-- **Icons**: Lucide React, React Icons
-- **State Management**: Zustand
+## Tech Stack
+- Framework: Next.js 15 (App Router, static export ready)
+- Language: TypeScript with strict typing
+- Styling: Tailwind CSS, CSS variables, custom theming
+- UI: Radix UI, shadcn/ui, Lucide icons, Framer Motion
+- State & Utilities: Zustand, class-variance-authority, assistant-ui
 
-### Backend & Tools
-- **Build Tool**: Next.js
-- **Package Manager**: npm
-- **Deployment**: Netlify
-- **Version Control**: Git
+## Getting Started
+1. **Install dependencies**
+   ```bash
+   npm install
+   ```
+2. **Copy environment variables**
+   ```bash
+   cp env.example .env.local
+   ```
+3. **Run the development server**
+   ```bash
+   npm run dev
+   ```
+4. Visit `http://localhost:3000` (English) or `http://localhost:3000/es` (Spanish).
 
-## 📱 Live Demo
+## Environment Variables
+Set these in `.env.local` or your hosting provider:
+- `NEXT_PUBLIC_SITE_URL` - Base URL for canonical links and meta tags.
+- `OPENAI_API_KEY` - Enables live responses for the portfolio chatbot. When omitted, the UI stays functional and falls back to scripted replies.
 
-🌐 **Portfolio**: [Deploy to see live demo]
+## Available Scripts
+- `npm run dev` - Start the local development server.
+- `npm run build` - Create a production build.
+- `npm run start` - Serve the production build.
+- `npm run lint` - Run ESLint with the Next.js configuration.
+- `npm run analyze` - Build with bundle analyzer enabled.
+- `npm run optimize-images` - Compress assets under `public/` via `scripts/optimize-images.js`.
+- `npm run export` - Generate a static export (outputs to `out/`).
 
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js 18+ 
-- npm or yarn
-
-### Installation
-
-1. **Clone the repository:**
-```bash
-git clone https://github.com/Steven-Mendez/portfolio-nextjs.git
-cd portfolio-nextjs
-```
-
-2. **Install dependencies:**
-```bash
-npm install
-```
-
-3. **Set up environment variables:**
-```bash
-# Copy the example file
-cp env.example .env.local
-
-# Or create .env.local manually with:
-NEXT_PUBLIC_SITE_URL=https://steven-mendez.netlify.app
-```
-
-4. **Run the development server:**
-```bash
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) to view the application.
-
-## 🚀 Deployment
-
-### Netlify Deployment
-
-1. **Connect your GitHub repository** to Netlify
-2. **Configure build settings:**
-   - Build command: `npm run build`
-   - Publish directory: `out`
-3. **Add environment variables** in Netlify dashboard:
-   - `NEXT_PUBLIC_SITE_URL`: Your Netlify URL (e.g., https://steven-mendez.netlify.app)
-
-### Manual Deployment
-
-1. **Build the project:**
-```bash
-npm run build
-```
-
-2. **Deploy the `out` folder** to your preferred hosting service
-
-## 📁 Project Structure
-
+## Project Structure
 ```
 src/
-├── app/                 # Next.js app directory
-│   ├── [locale]/       # Internationalization routes
-│   ├── globals.css     # Global styles
-│   └── layout.tsx      # Root layout
-├── components/         # React components
-│   ├── ui/            # shadcn/ui components
-│   └── ...            # Custom components
-├── data/              # Static data and content
-├── hooks/             # Custom React hooks
-├── lib/               # Utility functions
-└── types/             # TypeScript type definitions
+  app/                Next.js entry point with locale-aware routing
+  components/         Reusable UI, chatbot, layout primitives
+  data/               Portfolio copy, experience, and project metadata
+  hooks/              Custom hooks, including AI chat state management
+  lib/                Utility helpers (system prompt selection, configs)
+  types/              TypeScript interfaces shared across the app
+public/               Static assets (icons, preview image, downloadable CVs)
+netlify.toml          Netlify build configuration for static hosting
 ```
 
-## 🎯 Key Features Implementation
+## Enabling the AI Chatbot
+1. Generate an API key from OpenAI and assign it to `OPENAI_API_KEY`.
+2. Redeploy or restart the dev server so the key is available at runtime.
+3. The chatbot appears as a floating action button; it adapts to the current locale and acknowledges offline mode when no key is present.
 
-### Internationalization
-- Dynamic language switching (EN/ES)
-- SEO-optimized meta tags for each language
-- Proper URL structure with locale prefixes
+## Deployment Notes
+- **Netlify**: build command `npm run build`, publish directory `out/`. Set `NEXT_PUBLIC_SITE_URL` in the dashboard to your assigned domain.
+- **Static hosting**: run `npm run export` and upload the generated `out/` directory to your provider of choice.
 
-### Performance Optimizations
-- Static site generation (SSG)
-- Image optimization and lazy loading
-- Bundle optimization with tree shaking
-- Efficient caching strategies
-
-### Modern Development Practices
-- TypeScript for type safety
-- ESLint for code quality
-- Responsive design principles
-- Accessibility best practices
-
-## 📊 Performance Metrics
-
-- **Lighthouse Score**: 95+ (Performance, Accessibility, Best Practices, SEO)
-- **Core Web Vitals**: Optimized for all metrics
-- **Bundle Size**: Optimized with code splitting
-- **Load Time**: < 2s on 3G connection
-
-## 🤝 Contributing
-
-Contributions are welcome! Feel free to:
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your improvements
-4. Submit a pull request
-
-## 📞 Contact
-
-- **GitHub**: [@Steven-Mendez](https://github.com/Steven-Mendez)
-- **LinkedIn**: [Steven Mendez](https://www.linkedin.com/in/steven-mendez-dev/)
-- **Email**: stevenampaiz@gmail.com
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
+## Contact
+- Email: [stevenmendezdev@gmail.com](mailto:stevenmendezdev@gmail.com)
+- GitHub: [Steven-Mendez](https://github.com/Steven-Mendez)
+- LinkedIn: [Steven Mendez](https://www.linkedin.com/in/steven-mendez-dev/)
