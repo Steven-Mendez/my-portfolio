@@ -74,18 +74,18 @@ export default function Sidebar({ locale }: SidebarProps) {
             )}
 
             <div
-                className={`fixed inset-y-0 left-0 z-50 flex w-full max-w-[22.5rem] transform-gpu transition-transform duration-300 ease-in-out lg:hidden ${
+                className={`fixed inset-y-0 left-0 z-50 flex w-full max-w-[18.5rem] transform-gpu transition-transform duration-300 ease-in-out lg:hidden ${
                     isOpen ? 'translate-x-0' : '-translate-x-full'
                 }`}
             >
                 <div
-                    className="flex h-full w-full flex-col overflow-hidden rounded-r-3xl border border-border/50 dark:border-border/40 bg-background/95 dark:bg-background/90 shadow-2xl"
+                    className="flex h-full w-full flex-col overflow-hidden rounded-r-[1.75rem] border border-border/50 dark:border-border/40 bg-background/95 dark:bg-background/90 shadow-2xl"
                     style={{
                         paddingTop: "calc(env(safe-area-inset-top, 0px) + 1.5rem)",
                         paddingBottom: "calc(env(safe-area-inset-bottom, 0px) + 2rem)"
                     }}
                 >
-                    <div className="flex items-center justify-between px-6 pb-4">
+                    <div className="flex items-center justify-between px-5 pb-4">
                         <h1 className="text-xl font-semibold tracking-tight text-foreground">
                             {brandTitle}
                         </h1>
@@ -100,11 +100,11 @@ export default function Sidebar({ locale }: SidebarProps) {
                         </Button>
                     </div>
 
-                    <div className="px-6">
+                    <div className="px-5">
                         <div className="h-[1px] bg-border/70 dark:bg-border/40" />
                     </div>
 
-                    <div className="flex-1 overflow-y-auto px-6 py-4 space-y-8">
+                    <div className="flex-1 overflow-y-auto px-5 py-5 space-y-8">
                         <SidebarNavigation isMobile={true} texts={texts.navigation} />
 
                         <div className="space-y-4 border-t border-border/50 pt-4 dark:border-border/40">
