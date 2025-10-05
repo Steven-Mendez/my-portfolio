@@ -8,8 +8,8 @@ import { getTechColor } from '@/lib/utils';
 import { Project } from '@/types';
 
 interface ProjectDetailModalProps {
-    project: (Project & { // permitimos propiedades mapeadas opcionales pre-existentes
-        technologies?: string[]; // compat temporal
+    project: (Project & { // allow optional legacy mapped properties
+        technologies?: string[]; // temporary compatibility alias
     }) | null;
     open: boolean;
     onClose: () => void;
@@ -62,15 +62,12 @@ export default function ProjectDetailModal({ project, open, onClose, techStackTe
                 ref={dialogRef}
                 className="relative w-full max-w-5xl h-[92vh] max-h-[92vh] sm:h-[90vh] sm:max-h-[90vh] bg-white dark:bg-neutral-900 rounded-3xl shadow-2xl overflow-hidden flex flex-col animate-in fade-in zoom-in-95"
             >
-                {/* Close button (shared for all layouts) */}
                 <div className="absolute top-3 right-3 z-20">
                     <Button size="icon" variant="ghost" className="h-8 w-8 sm:h-9 sm:w-9 bg-white/80 dark:bg-neutral-800/80 backdrop-blur-sm hover:bg-white dark:hover:bg-neutral-800" aria-label="Close" onClick={onClose}>
                         <X className="w-4 h-4 sm:w-5 sm:h-5" />
                     </Button>
                 </div>
-                {/* Unified layout (image always on top) */}
                 <div className="flex flex-col flex-1">
-                    {/* Header (image optional) */}
                     <div className="relative w-full">
                         {project.image ? (
                             <div className="relative h-52 xs:h-60 sm:h-[40vh] md:h-[45vh] xl:h-[48vh] overflow-hidden">
@@ -96,7 +93,6 @@ export default function ProjectDetailModal({ project, open, onClose, techStackTe
                             </div>
                         )}
                     </div>
-                    {/* Body */}
                     <div className="px-5 sm:px-8 pb-6 sm:pb-8 pt-4 sm:pt-6 md:pt-8 overflow-y-auto flex-1" id="project-modal-content">
                         <div className="grid md:grid-cols-3 gap-8 sm:gap-10 md:gap-12">
                             <div className="md:col-span-2">
@@ -142,7 +138,6 @@ export default function ProjectDetailModal({ project, open, onClose, techStackTe
                         </div>
                     </div>
                 </div>
-                {/* Desktop-specific larger title sizing handled via responsive classes above. */}
             </div>
         </div>
     );

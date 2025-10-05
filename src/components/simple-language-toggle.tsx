@@ -8,15 +8,12 @@ export function SimpleLanguageToggle() {
   const pathname = usePathname();
   const router = useRouter();
 
-  // Determine current locale from pathname
   const currentLocale = pathname.startsWith('/es') ? 'es' : 'en';
   const targetLocale = currentLocale === 'en' ? 'es' : 'en';
 
-  // Determine target URL
   const targetUrl = currentLocale === 'en' ? '/es' : '/en';
 
   const handleLanguageChange = () => {
-    // Get the current scroll position to determine which section is visible
     const sections = ['hero', 'projects', 'experience'];
     let currentSection = '';
 
@@ -24,7 +21,6 @@ export function SimpleLanguageToggle() {
       const element = document.getElementById(sectionId);
       if (element) {
         const rect = element.getBoundingClientRect();
-        // Check if section is in the viewport (top half of the screen)
         if (rect.top <= window.innerHeight / 2 && rect.bottom >= 0) {
           currentSection = sectionId;
           break;
@@ -32,13 +28,11 @@ export function SimpleLanguageToggle() {
       }
     }
 
-    // Navigate to the new locale with the current section hash
     const urlWithHash = currentSection ? `${targetUrl}#${currentSection}` : targetUrl;
 
     router.push(urlWithHash);
   };
 
-  // Local SVGs in public/
   const flagSrc = targetLocale === 'en' ? '/us.svg' : '/es.svg';
 
   return (
@@ -58,7 +52,6 @@ export function SimpleLanguageToggle() {
             aria-hidden="true"
           />
         </div>
-        {/* Overlay visible solo en hover */}
         <span className="absolute inset-0 bg-black/30 dark:bg-white/30 opacity-0 group-hover:opacity-100 hover:opacity-100 transition-opacity rounded-full pointer-events-none" />
         <span className="sr-only">Toggle language</span>
       </Button>

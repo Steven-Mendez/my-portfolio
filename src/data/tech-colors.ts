@@ -43,7 +43,7 @@ export const TECH_COLORS: Record<string, string> = {
     'GCP': 'bg-indigo-50 dark:bg-indigo-950/30 text-indigo-700 dark:text-indigo-300 border-indigo-200 dark:border-indigo-800', // single-hue stand-in
     'Docker': 'bg-sky-50 dark:bg-sky-950/30 text-sky-700 dark:text-sky-300 border-sky-200 dark:border-sky-800',
     'Kubernetes': 'bg-indigo-50 dark:bg-indigo-950/30 text-indigo-700 dark:text-indigo-300 border-indigo-200 dark:border-indigo-800',
-    'Vercel': 'bg-neutral-900 dark:bg-neutral-100 text-neutral-100 dark:text-neutral-900 border-neutral-800 dark:border-neutral-300', // (ya no usado en proyectos actuales)
+    'Vercel': 'bg-neutral-900 dark:bg-neutral-100 text-neutral-100 dark:text-neutral-900 border-neutral-800 dark:border-neutral-300',
     'Netlify': 'bg-teal-50 dark:bg-teal-950/30 text-teal-700 dark:text-teal-300 border-teal-200 dark:border-teal-800',
 
     // ML / AI
@@ -87,5 +87,4 @@ export const TECH_COLORS: Record<string, string> = {
     // Portfolio specific additions
     'Radix UI': 'bg-violet-50 dark:bg-violet-950/30 text-violet-700 dark:text-violet-300 border-violet-200 dark:border-violet-800',
     'shadcn/ui': 'bg-neutral-50 dark:bg-neutral-900/40 text-neutral-700 dark:text-neutral-300 border-neutral-200 dark:border-neutral-700',
-    // 'Zustand' removido de techStack actual del portafolio
 };

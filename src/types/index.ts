@@ -1,4 +1,3 @@
-// src/types/index.ts
 export interface Project {
     title: string
     description: string

@@ -143,7 +143,6 @@ export function EnhancedThemeToggle({
     if (variant === "mobile") {
         return (
             <div className="flex items-center gap-4 group">
-                {/* Botón circular principal */}
                 <Button
                     variant="ghost"
                     size="icon"
@@ -159,7 +158,6 @@ export function EnhancedThemeToggle({
                     <Moon className={`absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100`} />
                 </Button>
                 
-                {/* Etiqueta simplificada */}
                 <div className="flex-1">
                     <div className="text-sm font-medium text-foreground">
                         {theme === "light" ? (texts?.light || "Claro") : (texts?.dark || "Oscuro")}
@@ -169,7 +167,6 @@ export function EnhancedThemeToggle({
         );
     }
 
-    // Default variant
     return (
         <div className="group relative">
             <Button

@@ -33,7 +33,6 @@ export default function LoadMoreProjects({ projects, loadMoreText, techStackText
 
     return (
         <>
-            {/* Grid estilo ejemplo (1 -> 2 columnas) */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto" role="list" aria-label="Portfolio projects">
                 {displayedProjects.map((project, idx) => (
                     <div
@@ -45,7 +44,6 @@ export default function LoadMoreProjects({ projects, loadMoreText, techStackText
                         onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setActiveProject(project); setOpen(true); } }}
                         className="group bg-white dark:bg-neutral-900 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden transform-gpu hover:-translate-y-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     >
-                        {/* Imagen */}
                         <div className="relative overflow-hidden h-48">
                             {project.image && (
                                 <Image
@@ -57,11 +55,9 @@ export default function LoadMoreProjects({ projects, loadMoreText, techStackText
                                     className="object-cover transition-transform duration-300 group-hover:scale-110"
                                 />
                             )}
-                            {/* Overlay gradiente sólo en hover */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                         </div>
 
-                        {/* Contenido */}
                         <div className="p-6">
                             <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 leading-snug">
                                 {project.title}
@@ -69,7 +65,6 @@ export default function LoadMoreProjects({ projects, loadMoreText, techStackText
                             <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-2 leading-relaxed text-sm">
                                 {project.description}
                             </p>
-                            {/* Tech stack */}
                             <div className="flex flex-wrap gap-1.5" role="list" aria-label="Tech stack">
                                 {project.techStack.map((tech) => (
                                     <span

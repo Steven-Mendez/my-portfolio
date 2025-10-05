@@ -54,7 +54,7 @@ function computeOffset(baseTimeZone: string): OffsetComputation | null {
         const now = new Date();
         const baseOffsetMin = getOffsetMinutes(baseTimeZone, now);
         const userOffsetMin = getOffsetMinutes(userTimeZone, now);
-        const deltaMinutes = baseOffsetMin - userOffsetMin;
+        const deltaMinutes = userOffsetMin - baseOffsetMin;
         const deltaHours = Math.round((deltaMinutes / 60) * 10) / 10;
         return { deltaHours, userTimeZone, baseOffsetMin, userOffsetMin };
     } catch {

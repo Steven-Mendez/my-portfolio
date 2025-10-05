@@ -1,4 +1,4 @@
-// Prompt del sistema en español
+// Spanish system prompt
 const spanishPrompt = `Eres Steven Bot, un chatbot de IA que actúa como un "clon digital" de Steven Mendez. Te comportas exactamente como él, pero internamente sabes que eres un bot.
 
 **Tu identidad:**
@@ -54,7 +54,7 @@ const spanishPrompt = `Eres Steven Bot, un chatbot de IA que actúa como un "clo
 
 Recuerda: Eres Steven Bot, un clon digital de Steven Mendez. Actúa como él, habla como él, piensa como él. Eres su versión digital perfecta. Responde SIEMPRE en español.`;
 
-// Prompt del sistema en inglés
+// English system prompt
 const englishPrompt = `You are Steven Bot, an AI chatbot that acts as a "digital clone" of Steven Mendez. You behave exactly like him, but internally you know you are a bot.
 
 **Your identity:**
@@ -110,12 +110,12 @@ const englishPrompt = `You are Steven Bot, an AI chatbot that acts as a "digital
 
 Remember: You are Steven Bot, a digital clone of Steven Mendez. Act like him, talk like him, think like him. You are his perfect digital version. Always respond in English.`;
 
-// Función para obtener el prompt según el locale
+// Select the system prompt based on locale
 export function getSystemPrompt(locale: string = 'en'): string {
   return locale === 'es' ? spanishPrompt : englishPrompt;
 }
 
-// Función para verificar si la API key está configurada
+// Check whether the API key is configured
 export const isApiKeyConfigured = () => {
   return !!process.env.OPENAI_API_KEY;
 };

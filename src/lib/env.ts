@@ -1,4 +1,3 @@
-// src/lib/env.ts
 export const env = {
     NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || "https://steven-mendez.netlify.app",
 } as const;
@@ -17,4 +16,4 @@ export function validateEnv() {
 // Call validation in development
 if (process.env.NODE_ENV === 'development') {
     validateEnv();
-} 
+}

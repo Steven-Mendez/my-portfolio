@@ -30,7 +30,6 @@ export default function Sidebar({ locale }: SidebarProps) {
 
     return (
         <>
-            {/* Mobile trigger */}
             <Button
                 onClick={toggleSidebar}
                 variant="ghost"
@@ -42,7 +41,6 @@ export default function Sidebar({ locale }: SidebarProps) {
                 {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
 
-            {/* Mobile overlay */}
             {isOpen && (
                 <div
                     className="fixed inset-0 bg-black/20 dark:bg-black/40 z-40 md:hidden"
@@ -50,7 +48,6 @@ export default function Sidebar({ locale }: SidebarProps) {
                 />
             )}
 
-            {/* Mobile sidebar */}
             <div
                 className={`fixed left-0 top-0 h-full w-80 bg-background/95 dark:bg-background/95 backdrop-blur-md border-r border-border/40 dark:border-border/40 z-50 transform transition-transform duration-300 ease-in-out md:hidden ${
                     isOpen ? 'translate-x-0' : '-translate-x-full'
@@ -106,7 +103,6 @@ export default function Sidebar({ locale }: SidebarProps) {
                 </div>
             </div>
 
-            {/* Desktop sidebar */}
             <aside className="fixed left-0 top-0 hidden h-full w-20 bg-background/80 dark:bg-background/80 backdrop-blur-md border-r border-border/40 dark:border-border/40 z-40 md:flex flex-col items-center justify-between py-8">
                 <div className="flex flex-col items-center space-y-6">
                     <SidebarNavigation isMobile={false} texts={texts.navigation} />

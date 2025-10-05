@@ -8,7 +8,6 @@ export interface Message {
   timestamp: Date;
 }
 
-// Mensajes de error multilingües
 const errorMessages = {
   en: {
     noApiKey: "Hi! I'm Steven Bot. I'd love to chat with you, but my AI service is currently offline. Please check back later or feel free to contact me directly through the contact links in my portfolio.",
@@ -46,10 +45,10 @@ export function useChat(locale: string = 'en') {
         throw new Error('API_KEY_NOT_CONFIGURED');
       }
 
-      // Simular delay de respuesta
+      // Simulate response delay
       await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Respuestas simuladas basadas en el contexto
+
+      // Simulated responses based on the provided content
       let responseContent = '';
       const lowerContent = content.toLowerCase();
       

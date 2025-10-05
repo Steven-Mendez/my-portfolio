@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { MessageCircle, X, Minimize2, Send, Loader2, WifiOff } from "lucide-react";
 import { useChat } from "@/hooks/use-chat";
 
-// Textos multilingües para el chatbot
 const chatbotTexts = {
   en: {
     title: "Steven Mendez",
@@ -74,7 +73,6 @@ export default function Chatbot({ locale }: ChatbotProps) {
 
   return (
     <div className="fixed bottom-6 right-6 w-96 h-[600px] bg-background border border-border rounded-lg shadow-2xl z-50 flex flex-col">
-      {/* Header */}
       <div className="flex items-center justify-between p-4 border-b border-border bg-muted/50 rounded-t-lg">
         <div className="flex items-center space-x-2">
           <MessageCircle className="h-5 w-5 text-brand" />
@@ -108,10 +106,8 @@ export default function Chatbot({ locale }: ChatbotProps) {
         </div>
       </div>
 
-      {/* Contenido */}
       {!isMinimized && (
         <div className="flex-1 overflow-hidden flex flex-col">
-          {/* Mensajes */}
           <div className="flex-1 overflow-y-auto p-4 space-y-4">
             {messages.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-full text-center text-muted-foreground">
@@ -161,7 +157,6 @@ export default function Chatbot({ locale }: ChatbotProps) {
             )}
           </div>
           
-          {/* Entrada */}
           <div className="p-4 border-t border-border bg-muted/30">
             <div className="flex flex-col gap-3">
               <div className="flex gap-2">

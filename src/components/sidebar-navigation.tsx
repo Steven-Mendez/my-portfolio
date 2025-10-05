@@ -52,13 +52,11 @@ export default function SidebarNavigation({ isMobile, texts }: SidebarNavigation
     if (isMobile) {
         return (
             <div className="space-y-6">
-                {/* Header de navegación */}
                 <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
                     <ChevronDown className="h-4 w-4" />
                     <span className="font-medium">{texts?.title || "Navegación"}</span>
                 </div>
                 
-                                {/* Botones de navegación circulares */}
                 <div className="space-y-4">
                     {navigationItems.map((item) => {
                         const Icon = item.icon;
@@ -67,7 +65,6 @@ export default function SidebarNavigation({ isMobile, texts }: SidebarNavigation
                                 <Tooltip>
                                     <TooltipTrigger asChild>
                                         <div className="flex items-center gap-4 group">
-                                            {/* Botón circular principal */}
                                             <Button
                                                 variant={activeSection === item.id ? "brand" : "ghost"}
                                                 size="icon"
@@ -81,14 +78,12 @@ export default function SidebarNavigation({ isMobile, texts }: SidebarNavigation
                                                 <Icon className={`h-5 w-5 transition-colors duration-300 ${activeSection === item.id ? 'text-brand-foreground' : item.color}`} />
                                             </Button>
                                             
-                                            {/* Etiqueta en el idioma actual */}
                                             <div className="flex-1">
                                                 <div className="text-sm font-medium text-foreground">
                                                     {item.label}
                                                 </div>
                                             </div>
                                             
-                                            {/* Indicador de sección activa */}
                                             {activeSection === item.id && (
                                                 <div className="w-3 h-3 rounded-full bg-brand animate-pulse shadow-sm" />
                                             )}
@@ -106,7 +101,6 @@ export default function SidebarNavigation({ isMobile, texts }: SidebarNavigation
         );
     }
 
-    // Desktop navigation - más compacta
     return (
         <div className="space-y-4">
             {navigationItems.map((item) => {
@@ -129,7 +123,6 @@ export default function SidebarNavigation({ isMobile, texts }: SidebarNavigation
                                     >
                                         <Icon className={`h-4 w-4 transition-colors duration-300 ${activeSection === item.id ? 'text-brand-foreground' : item.color}`} />
                                     </Button>
-                                    {/* Indicador de sección activa */}
                                     {activeSection === item.id && (
                                         <div className="absolute -right-1 -top-1 w-3 h-3 rounded-full bg-brand animate-pulse shadow-sm" />
                                     )}

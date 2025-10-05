@@ -56,17 +56,11 @@ export default function RootLayout({
     return (
         <html lang="en" className="scroll-smooth" suppressHydrationWarning>
             <head>
-                {/* Preconnect to external domains for faster loading */}
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-
-                {/* DNS prefetch for other domains */}
                 <link rel="dns-prefetch" href="https://github.com" />
                 <link rel="dns-prefetch" href="https://linkedin.com" />
-
-                {/* Preload critical resources */}
                 <link rel="preload" href="/image.png" as="image" type="image/png" />
-
             </head>
             <body className={inter.className}>
                 {children}

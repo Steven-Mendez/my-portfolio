@@ -27,15 +27,12 @@ export function EnhancedLanguageToggle({
     const router = useRouter();
     const [isOpen, setIsOpen] = useState(false);
 
-    // Determine current locale from pathname
     const currentLocale = pathname.startsWith('/es') ? 'es' : 'en';
     const targetLocale = currentLocale === 'en' ? 'es' : 'en';
 
-    // Determine target URL
     const targetUrl = currentLocale === 'en' ? '/es' : '/en';
 
     const handleLanguageChange = () => {
-        // Get the current scroll position to determine which section is visible
         const sections = ['hero', 'projects', 'experience'];
         let currentSection = '';
 
@@ -43,7 +40,6 @@ export function EnhancedLanguageToggle({
             const element = document.getElementById(sectionId);
             if (element) {
                 const rect = element.getBoundingClientRect();
-                // Check if section is in the viewport (top half of the screen)
                 if (rect.top <= window.innerHeight / 2 && rect.bottom >= 0) {
                     currentSection = sectionId;
                     break;
@@ -51,7 +47,6 @@ export function EnhancedLanguageToggle({
             }
         }
 
-        // Navigate to the new locale with the current section hash
         const urlWithHash = currentSection ? `${targetUrl}#${currentSection}` : targetUrl;
 
         router.push(urlWithHash);
@@ -156,7 +151,6 @@ export function EnhancedLanguageToggle({
     if (variant === "mobile") {
         return (
             <div className="flex items-center gap-4 group">
-                {/* Botón circular principal */}
                 <Button
                     variant="ghost"
                     size="icon"
@@ -176,7 +170,6 @@ export function EnhancedLanguageToggle({
                     <div className="absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 transition-opacity rounded-full" />
                 </Button>
 
-                {/* Etiqueta simplificada */}
                 <div className="flex-1">
                     <div className="text-sm font-medium text-foreground">
                         {texts?.language || (currentLocale === 'en' ? 'EN' : 'ES')}
@@ -186,7 +179,6 @@ export function EnhancedLanguageToggle({
         );
     }
 
-    // Default variant
     return (
         <div className="group relative">
             <Button

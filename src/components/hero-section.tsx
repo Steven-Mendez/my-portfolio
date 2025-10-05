@@ -11,7 +11,6 @@ import ContactLinks from "./contact-links";
 import TimeOffset from "./time-offset";
 import { Contact } from "@/types";
 
-// ----------------- Types -----------------
 
 /** External data shape expected by HeroSection. */
 interface HeroSectionProps {
@@ -29,7 +28,6 @@ interface HeroSectionProps {
     showAvatar?: boolean;
 }
 
-// ----------------- Helpers -----------------
 /** Derive up to three uppercase initials for the avatar fallback. */
 function getInitials(fullName: string): string {
     if (!fullName || !fullName.trim()) return ""; // safe guard
@@ -38,7 +36,6 @@ function getInitials(fullName: string): string {
     return parts.map(p => p.charAt(0)).join("").slice(0, 3).toUpperCase();
 }
 
-// ----------------- Private Sub-components -----------------
 /** Props for Header (name + role). */
 interface HeaderProps { name: string; title: string; }
 /** Heading block (H1 name + H2 role). */
@@ -141,7 +138,6 @@ const AvatarBlock = ({ name, initials }: AvatarBlockProps) => (
     </figure>
 );
 
-// ----------------- Main Component -----------------
 /** Main exported HeroSection container. */
 export default function HeroSection({ data, showAvatar = true }: HeroSectionProps) {
     const { name, title, location, bio, contacts, cv } = data.personal;
@@ -154,7 +150,6 @@ export default function HeroSection({ data, showAvatar = true }: HeroSectionProp
             aria-labelledby="hero-name"
             aria-label={`${name} profile section`}
         >
-            {/* Mobile-first: stack content and avatar; switch to grid on medium screens */}
             <div className="flex flex-col-reverse md:grid md:grid-cols-[minmax(0,1fr)_auto] items-center md:items-center gap-8 md:gap-10">
                 <div className="w-full min-w-0 max-w-3xl px-1 sm:px-0">
                     <Header name={name} title={title} />
