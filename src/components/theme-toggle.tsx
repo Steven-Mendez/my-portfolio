@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Moon, Sun, Monitor } from "lucide-react";
+import { Moon, Sun, Monitor, ArrowRight } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
@@ -26,9 +26,11 @@ export function EnhancedThemeToggle({
     themes = ["light", "dark", "system"],
     texts
 }: EnhancedThemeToggleProps) {
-    const { theme, setTheme } = useTheme();
+    const { theme, setTheme, resolvedTheme } = useTheme();
     const [mounted, setMounted] = React.useState(false);
     const [isOpen, setIsOpen] = useState(false);
+
+    const effectiveTheme = (theme === "system" ? resolvedTheme : theme) ?? "light";
 
     React.useEffect(() => {
         setMounted(true);
@@ -86,11 +88,11 @@ export function EnhancedThemeToggle({
                 variant="ghost"
                 size="icon"
                 className={`${getSizeClasses(size)} rounded-full transition-all duration-300 transform-gpu hover:scale-105 hover:shadow-lg hover:ring-2 hover:ring-brand/30 active:scale-95 ${
-                    theme === "light"
+                    effectiveTheme === "light"
                         ? "!bg-amber-100 !text-amber-700 shadow-md ring-1 ring-amber-500/40 dark:!bg-amber-800/40 dark:!text-amber-300 hover:!bg-amber-200 dark:hover:!bg-amber-700/60 hover:!ring-amber-500/60"
                         : "!bg-slate-100 !text-slate-700 shadow-md ring-1 ring-slate-500/40 dark:!bg-slate-700/40 dark:!text-slate-300 hover:!bg-slate-200 dark:hover:!bg-slate-600/60 hover:!ring-slate-500/60"
                 }`}
-                onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+                onClick={() => setTheme(effectiveTheme === "light" ? "dark" : "light")}
                 aria-label="Toggle theme"
             >
                 <Sun className={`${getIconSize(size)} rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0`} />
@@ -105,13 +107,17 @@ export function EnhancedThemeToggle({
                 <Button
                     variant="ghost"
                     size="icon"
-                    className={`${getSizeClasses(size)} rounded-full ${getThemeColor(theme || "system")} hover:bg-brand/10 dark:hover:bg-brand/15 hover:text-brand hover:ring-1 hover:ring-brand/40 transition-all duration-200 shadow-md hover:shadow-lg ${className}`}
+                    className={`${getSizeClasses(size)} rounded-full ${getThemeColor(effectiveTheme)} hover:bg-brand/10 dark:hover:bg-brand/15 hover:text-brand hover:ring-1 hover:ring-brand/40 transition-all duration-200 shadow-md hover:shadow-lg ${className}`}
                     onClick={() => setIsOpen(!isOpen)}
                     aria-label="Select theme"
                 >
-                    {theme === "light" && <Sun className={`${getIconSize(size)} text-muted-foreground`} />}
-                    {theme === "dark" && <Moon className={`${getIconSize(size)} text-muted-foreground`} />}
-                    {theme === "system" && <Monitor className={`${getIconSize(size)} text-muted-foreground`} />}
+                    {theme === "system" ? (
+                        <Monitor className={`${getIconSize(size)} text-muted-foreground`} />
+                    ) : effectiveTheme === "light" ? (
+                        <Sun className={`${getIconSize(size)} text-muted-foreground`} />
+                    ) : (
+                        <Moon className={`${getIconSize(size)} text-muted-foreground`} />
+                    )}
                 </Button>
 
                 {isOpen && (
@@ -141,29 +147,36 @@ export function EnhancedThemeToggle({
     }
 
     if (variant === "mobile") {
+        const nextThemeLabel = effectiveTheme === "light"
+            ? (texts?.dark || "Dark Mode")
+            : (texts?.light || "Light Mode");
+
         return (
-            <div className="flex items-center gap-4 group">
-                <Button
-                    variant="ghost"
-                    size="icon"
-                    className={`w-14 h-14 rounded-full transition-all duration-300 ${
-                        theme === "light"
-                            ? "!bg-amber-100 !text-amber-700 shadow-lg ring-2 ring-amber-500/40 dark:!bg-amber-800/40 dark:!text-amber-300"
-                            : "!bg-slate-100 !text-slate-700 shadow-lg ring-2 ring-slate-500/40 dark:!bg-slate-700/40 dark:!text-slate-300"
-                    }`}
-                    onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-                    aria-label="Toggle theme"
-                >
-                    <Sun className={`h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0`} />
-                    <Moon className={`absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100`} />
-                </Button>
-                
-                <div className="flex-1">
-                    <div className="text-sm font-medium text-foreground">
-                        {theme === "light" ? (texts?.light || "Claro") : (texts?.dark || "Oscuro")}
-                    </div>
-                </div>
-            </div>
+            <button
+                type="button"
+                onClick={() => setTheme(effectiveTheme === "light" ? "dark" : "light")}
+                className={`group flex w-full items-center gap-4 rounded-2xl border border-border/50 px-3 py-3 text-left transition-all duration-200 hover:border-brand/60 hover:bg-brand/10 hover:text-brand dark:border-border/40 ${className}`}
+                aria-label={`Toggle theme. ${nextThemeLabel}`}
+            >
+                <span className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-border/50 bg-muted/30 transition-all duration-200 group-hover:border-brand/60 group-hover:bg-brand/15 dark:bg-muted/20">
+                    <Sun className={`h-5 w-5 transition-all duration-200 ${
+                        effectiveTheme === "light"
+                            ? "opacity-100 scale-100"
+                            : "-rotate-90 opacity-0 scale-75"
+                    }`} />
+                    <Moon className={`absolute h-5 w-5 transition-all duration-200 ${
+                        effectiveTheme === "light"
+                            ? "rotate-90 opacity-0 scale-75"
+                            : "rotate-0 opacity-100 scale-100"
+                    }`} />
+                </span>
+
+                <span className="flex-1 text-sm font-medium tracking-tight text-foreground transition-colors group-hover:text-brand">
+                    {nextThemeLabel}
+                </span>
+
+                <ArrowRight className="h-4 w-4 text-muted-foreground transition-transform duration-200 group-hover:translate-x-1 group-hover:text-brand" />
+            </button>
         );
     }
 
@@ -172,8 +185,8 @@ export function EnhancedThemeToggle({
             <Button
                 variant="ghost"
                 size="icon"
-                className={`${getSizeClasses(size)} rounded-full ${getThemeColor(theme || "system")} hover:bg-brand/10 dark:hover:bg-brand/15 hover:text-brand hover:ring-1 hover:ring-brand/40 transition-all duration-200 shadow-md hover:shadow-lg ${className}`}
-                onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+                className={`${getSizeClasses(size)} rounded-full ${getThemeColor(effectiveTheme)} hover:bg-brand/10 dark:hover:bg-brand/15 hover:text-brand hover:ring-1 hover:ring-brand/40 transition-all duration-200 shadow-md hover:shadow-lg ${className}`}
+                onClick={() => setTheme(effectiveTheme === "light" ? "dark" : "light")}
                 aria-label="Toggle theme"
             >
                 <Sun className={`${getIconSize(size)} rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 text-muted-foreground`} />

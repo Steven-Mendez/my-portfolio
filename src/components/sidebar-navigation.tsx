@@ -51,53 +51,50 @@ export default function SidebarNavigation({ isMobile, texts }: SidebarNavigation
 
     if (isMobile) {
         return (
-            <div className="space-y-6">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
-                    <ChevronDown className="h-4 w-4" />
-                    <span className="font-medium">{texts?.title || "Navegación"}</span>
+            <nav aria-label={texts?.title || "Navigation"} className="space-y-6">
+                <div className="flex items-center gap-2 text-[0.65rem] font-semibold uppercase tracking-[0.42em] text-muted-foreground/80">
+                    <ChevronDown className="h-3.5 w-3.5" />
+                    <span>{texts?.title || "Navegación"}</span>
                 </div>
-                
+
                 <div className="space-y-4">
                     {navigationItems.map((item) => {
                         const Icon = item.icon;
+                        const isActive = activeSection === item.id;
+
                         return (
-                            <TooltipProvider key={item.id} delayDuration={300}>
-                                <Tooltip>
-                                    <TooltipTrigger asChild>
-                                        <div className="flex items-center gap-4 group">
-                                            <Button
-                                                variant={activeSection === item.id ? "brand" : "ghost"}
-                                                size="icon"
-                                                className={`w-14 h-14 rounded-full transition-all duration-300 ${
-                                                    activeSection === item.id
-                                                        ? "shadow-md hover:scale-[1.05] active:scale-100 focus-visible:ring-brand/50"
-                                                        : "text-muted-foreground hover:text-foreground hover:bg-brand/10 dark:hover:bg-brand/15 hover:text-brand hover:ring-1 hover:ring-brand/40 hover:shadow-lg hover:scale-105"
-                                                }`}
-                                                onClick={() => scrollToSection(item.id)}
-                                            >
-                                                <Icon className={`h-5 w-5 transition-colors duration-300 ${activeSection === item.id ? 'text-brand-foreground' : item.color}`} />
-                                            </Button>
-                                            
-                                            <div className="flex-1">
-                                                <div className="text-sm font-medium text-foreground">
-                                                    {item.label}
-                                                </div>
-                                            </div>
-                                            
-                                            {activeSection === item.id && (
-                                                <div className="w-3 h-3 rounded-full bg-brand animate-pulse shadow-sm" />
-                                            )}
-                                        </div>
-                                    </TooltipTrigger>
-                                    <TooltipContent side="right">
+                            <div key={item.id} className="group flex items-center gap-4">
+                                <Button
+                                    variant={isActive ? "brand" : "ghost"}
+                                    size="icon"
+                                    className={`h-12 w-12 shrink-0 rounded-full border transition-all duration-300 ${
+                                        isActive
+                                            ? "border-brand/60 bg-brand text-brand-foreground shadow-md"
+                                            : "border-border/40 bg-background/80 text-muted-foreground hover:border-brand/50 hover:text-brand hover:bg-brand/10"
+                                    }`}
+                                    onClick={() => scrollToSection(item.id)}
+                                    aria-current={isActive ? "page" : undefined}
+                                >
+                                    <Icon className="h-5 w-5" />
+                                </Button>
+                                <div className="flex-1">
+                                    <p className={`text-sm font-medium tracking-tight transition-colors ${
+                                        isActive ? "text-foreground" : "text-muted-foreground group-hover:text-foreground"
+                                    }`}>
                                         {item.label}
-                                    </TooltipContent>
-                                </Tooltip>
-                            </TooltipProvider>
+                                    </p>
+                                </div>
+                                <span
+                                    className={`h-2.5 w-2.5 rounded-full bg-brand transition-opacity duration-200 ${
+                                        isActive ? "opacity-100" : "opacity-0"
+                                    }`}
+                                    aria-hidden="true"
+                                />
+                            </div>
                         );
                     })}
                 </div>
-            </div>
+            </nav>
         );
     }
 

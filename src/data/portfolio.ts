@@ -106,7 +106,7 @@ export const UI_TEXTS = {
             rights: "All rights reserved."
         },
         configuration: {
-            title: "Configuration",
+            title: "Preferences",
             light: "Light Mode",
             dark: "Dark Mode",
             language: "Español"
@@ -155,7 +155,7 @@ export const UI_TEXTS = {
             rights: "Todos los derechos reservados."
         },
         configuration: {
-            title: "Configuración",
+            title: "Preferencias",
             light: "Modo Claro",
             dark: "Modo Oscuro",
             language: "English"

@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ArrowRight } from "lucide-react";
 
 interface EnhancedLanguageToggleProps {
     variant?: "default" | "compact" | "expanded" | "mobile";
@@ -14,6 +14,7 @@ interface EnhancedLanguageToggleProps {
     texts?: {
         language: string;
     };
+    onBeforeNavigate?: () => void;
 }
 
 export function EnhancedLanguageToggle({
@@ -21,7 +22,8 @@ export function EnhancedLanguageToggle({
     showLabel = false,
     size = "md",
     className = "",
-    texts
+    texts,
+    onBeforeNavigate
 }: EnhancedLanguageToggleProps) {
     const pathname = usePathname();
     const router = useRouter();
@@ -49,6 +51,7 @@ export function EnhancedLanguageToggle({
 
         const urlWithHash = currentSection ? `${targetUrl}#${currentSection}` : targetUrl;
 
+        onBeforeNavigate?.();
         router.push(urlWithHash);
         setIsOpen(false);
     };
@@ -149,33 +152,31 @@ export function EnhancedLanguageToggle({
     }
 
     if (variant === "mobile") {
-        return (
-            <div className="flex items-center gap-4 group">
-                <Button
-                    variant="ghost"
-                    size="icon"
-                    className="w-14 h-14 rounded-full p-0 overflow-hidden relative bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 hover:from-blue-100 hover:to-blue-200 dark:hover:from-blue-800/30 dark:hover:to-blue-700/30 transition-all duration-300 hover:shadow-lg hover:scale-105 hover:ring-1 hover:ring-blue-400/60"
-                    onClick={handleLanguageChange}
-                    aria-label={`Switch to ${targetLanguage?.name}`}
-                >
-                    <div className="relative w-full h-full rounded-full overflow-hidden">
-                        <Image
-                            src={targetLanguage?.flag || '/us.svg'}
-                            alt={targetLanguage?.name || 'Language'}
-                            fill
-                            className="object-cover rounded-full"
-                            aria-hidden="true"
-                        />
-                    </div>
-                    <div className="absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 transition-opacity rounded-full" />
-                </Button>
+        const actionLabel = texts?.language || targetLanguage?.name || (currentLocale === 'en' ? 'Español' : 'English');
 
-                <div className="flex-1">
-                    <div className="text-sm font-medium text-foreground">
-                        {texts?.language || (currentLocale === 'en' ? 'EN' : 'ES')}
-                    </div>
-                </div>
-            </div>
+        return (
+            <button
+                type="button"
+                onClick={handleLanguageChange}
+                className={`group flex w-full items-center gap-4 rounded-2xl border border-border/50 px-3 py-3 text-left transition-all duration-200 hover:border-brand/60 hover:bg-brand/10 hover:text-brand dark:border-border/40 ${className}`}
+                aria-label={`Switch language to ${actionLabel}`}
+            >
+                <span className="relative flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-full border border-border/50 bg-muted/30 transition-all duration-200 group-hover:border-brand/60 group-hover:bg-brand/15 dark:bg-muted/20">
+                    <Image
+                        src={targetLanguage?.flag || '/us.svg'}
+                        alt={targetLanguage?.name || 'Language'}
+                        fill
+                        className="object-cover"
+                        aria-hidden="true"
+                    />
+                </span>
+
+                <span className="flex-1 text-sm font-medium tracking-tight text-foreground transition-colors group-hover:text-brand">
+                    {actionLabel}
+                </span>
+
+                <ArrowRight className="h-4 w-4 text-muted-foreground transition-transform duration-200 group-hover:translate-x-1 group-hover:text-brand" />
+            </button>
         );
     }
 
